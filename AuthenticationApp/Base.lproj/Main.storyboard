@@ -51,6 +51,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Signup">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="h4t-jF-wf1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
