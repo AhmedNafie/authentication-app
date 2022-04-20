@@ -9,15 +9,9 @@ import UIKit
 
 class SignUpVC: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("signup vc")
-    }
-    
     @IBAction func signUpButtonTapped() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let upComingVC = storyBoard.instantiateViewController(withIdentifier: "LogInVC")
-        navigationController?.pushViewController(upComingVC, animated: true)
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
+        navigationController?.pushViewController(logInVC!, animated: true)
     }
 }
 

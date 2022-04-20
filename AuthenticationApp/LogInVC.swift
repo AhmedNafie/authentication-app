@@ -7,11 +7,10 @@
 
 import UIKit
 
-class LogInVc: UIViewController {
+class LogInVC: UIViewController {
     
     @IBAction func logInButtonTapped() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let upComingVC = storyBoard.instantiateViewController(withIdentifier: "ProfileVC")
-        navigationController?.pushViewController(upComingVC, animated: true)
+        let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC")
+        navigationController?.pushViewController(profileVC!, animated: true)
     }
 }
