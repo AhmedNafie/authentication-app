@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1240.5797101449277" y="-589.28571428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In Vc-->
         <scene sceneID="bq2-wH-s9S">
             <objects>
-                <viewController id="Hjs-CF-ojO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInVC" id="Hjs-CF-ojO" customClass="LogInVc" customModule="AuthenticationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kdh-Hi-f5t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

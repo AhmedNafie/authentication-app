@@ -13,6 +13,7 @@
 		452F551D280F988900311B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F551B280F988900311B55 /* Main.storyboard */; };
 		452F551F280F988B00311B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452F551E280F988B00311B55 /* Assets.xcassets */; };
 		452F5522280F988B00311B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F5520280F988B00311B55 /* LaunchScreen.storyboard */; };
+		45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382528103ACD00A93AAC /* LogInVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		452F551E280F988B00311B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452F5521280F988B00311B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452F5523280F988B00311B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45B2382528103ACD00A93AAC /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				452F5515280F988900311B55 /* AppDelegate.swift */,
 				452F5517280F988900311B55 /* SceneDelegate.swift */,
 				452F5519280F988900311B55 /* SignUpVC.swift */,
+				45B2382528103ACD00A93AAC /* LogInVC.swift */,
 				452F551B280F988900311B55 /* Main.storyboard */,
 				452F551E280F988B00311B55 /* Assets.xcassets */,
 				452F5520280F988B00311B55 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				452F551A280F988900311B55 /* SignUpVC.swift in Sources */,
 				452F5516280F988900311B55 /* AppDelegate.swift in Sources */,
+				45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */,
 				452F5518280F988900311B55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
