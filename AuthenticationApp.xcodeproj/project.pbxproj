@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		452F5516280F988900311B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F5515280F988900311B55 /* AppDelegate.swift */; };
 		452F5518280F988900311B55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F5517280F988900311B55 /* SceneDelegate.swift */; };
-		452F551A280F988900311B55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F5519280F988900311B55 /* ViewController.swift */; };
+		452F551A280F988900311B55 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F5519280F988900311B55 /* SignUpVC.swift */; };
 		452F551D280F988900311B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F551B280F988900311B55 /* Main.storyboard */; };
 		452F551F280F988B00311B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452F551E280F988B00311B55 /* Assets.xcassets */; };
 		452F5522280F988B00311B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F5520280F988B00311B55 /* LaunchScreen.storyboard */; };
+		45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382528103ACD00A93AAC /* LogInVC.swift */; };
+		45B2382828103B8600A93AAC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382728103B8600A93AAC /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		452F5512280F988900311B55 /* AuthenticationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthenticationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452F5515280F988900311B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		452F5517280F988900311B55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		452F5519280F988900311B55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		452F5519280F988900311B55 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		452F551C280F988900311B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		452F551E280F988B00311B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452F5521280F988B00311B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452F5523280F988B00311B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45B2382528103ACD00A93AAC /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		45B2382728103B8600A93AAC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,9 @@
 			children = (
 				452F5515280F988900311B55 /* AppDelegate.swift */,
 				452F5517280F988900311B55 /* SceneDelegate.swift */,
-				452F5519280F988900311B55 /* ViewController.swift */,
+				452F5519280F988900311B55 /* SignUpVC.swift */,
+				45B2382528103ACD00A93AAC /* LogInVC.swift */,
+				45B2382728103B8600A93AAC /* ProfileVC.swift */,
 				452F551B280F988900311B55 /* Main.storyboard */,
 				452F551E280F988B00311B55 /* Assets.xcassets */,
 				452F5520280F988B00311B55 /* LaunchScreen.storyboard */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452F551A280F988900311B55 /* ViewController.swift in Sources */,
+				452F551A280F988900311B55 /* SignUpVC.swift in Sources */,
+				45B2382828103B8600A93AAC /* ProfileVC.swift in Sources */,
 				452F5516280F988900311B55 /* AppDelegate.swift in Sources */,
+				45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */,
 				452F5518280F988900311B55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +299,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthenticationApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "authentication-app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,6 +327,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthenticationApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "authentication-app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
