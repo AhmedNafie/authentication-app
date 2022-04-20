@@ -116,6 +116,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="logInButtonTapped" destination="Hjs-CF-ojO" eventType="touchUpInside" id="EF9-40-X6H"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vfK-By-nWk"/>
