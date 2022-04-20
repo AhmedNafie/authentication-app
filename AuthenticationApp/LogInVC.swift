@@ -14,5 +14,4 @@ class LogInVc: UIViewController {
         let upComingVC = storyBoard.instantiateViewController(withIdentifier: "ProfileVC")
         navigationController?.pushViewController(upComingVC, animated: true)
     }
-    
 }

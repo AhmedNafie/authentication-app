@@ -14,7 +14,6 @@ class SignUpVC: UIViewController {
         print("signup vc")
     }
     
-    
     @IBAction func signUpButtonTapped() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let upComingVC = storyBoard.instantiateViewController(withIdentifier: "LogInVC")
