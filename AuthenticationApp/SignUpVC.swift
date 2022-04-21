@@ -22,12 +22,12 @@ struct User {
 class SignUpVC: UIViewController {
     
     // MARK: - private Outlets
-    @IBOutlet weak var nameTextFIeld: UITextField!
+    @IBOutlet weak private var nameTextFIeld: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
-    @IBOutlet weak var genderSwtich: UISwitch!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak private var genderSwtich: UISwitch!
+    @IBOutlet weak private var emailTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var confirmPasswordTextField: UITextField!
     
     // MARK: - private Actions
     @IBAction private func signUpButtonTapped() {
@@ -39,7 +39,8 @@ class SignUpVC: UIViewController {
     @IBAction private func genderSwtichTapped() {
         genderLabel.text = genderSwtich.isOn ? Gender.male.rawValue : Gender.female.rawValue
     }
-    func printUserData() {
+    // MARK: - private functions
+    private func printUserData() {
         print(nameTextFIeld.text)
         print(genderLabel.text)
         print(emailTextField.text)
