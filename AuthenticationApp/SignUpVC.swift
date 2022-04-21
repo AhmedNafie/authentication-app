@@ -6,28 +6,26 @@
 //
 
 import UIKit
+
 enum Gender: String {
     case male = "Male"
     case female = "Female"
 }
 
 class SignUpVC: UIViewController {
-    
+    // MARK: - private Outlets
     @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak var genderSwtich: UISwitch!
-    
+    // MARK: - private Actions
+
     @IBAction private func signUpButtonTapped() {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
         navigationController?.pushViewController(logInVC!, animated: true)
     }
     
     @IBAction private func genderSwtichTapped() {
-        if genderSwtich.isOn {
-            genderLabel.text = Gender.male.rawValue
-        } else {
-            genderLabel.text = Gender.female.rawValue
-        }
-    }
+        genderLabel.text = genderSwtich.isOn ? Gender.male.rawValue : Gender.female.rawValue
+}
 }
 
 
