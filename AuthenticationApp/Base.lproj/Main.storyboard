@@ -106,7 +106,7 @@
                                 <rect key="frame" x="287" y="187" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="genderSwitchTapped" destination="BYZ-38-t0r" eventType="valueChanged" id="XN6-O6-N59"/>
+                                    <action selector="genderSwitchTappedWithGenderSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="4sU-kp-MDP"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD8-Ei-o2z">
@@ -125,7 +125,6 @@
                         <outlet property="confirmPasswordTextField" destination="zNc-8F-XiA" id="uve-gr-o8d"/>
                         <outlet property="emailTextField" destination="RjZ-7f-il2" id="48C-Cq-i2m"/>
                         <outlet property="genderLabel" destination="TD8-Ei-o2z" id="wlq-o9-Goa"/>
-                        <outlet property="genderSwtich" destination="Mfd-3u-YKz" id="1Yo-VG-fzs"/>
                         <outlet property="nameTextFIeld" destination="EX0-UV-NM6" id="qFT-2r-CQC"/>
                         <outlet property="passwordTextField" destination="WiP-tL-H6O" id="AvK-JW-OlL"/>
                     </connections>

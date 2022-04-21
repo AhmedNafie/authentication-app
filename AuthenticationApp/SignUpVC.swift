@@ -24,7 +24,6 @@ class SignUpVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var nameTextFIeld: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
-    @IBOutlet weak private var genderSwtich: UISwitch!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var confirmPasswordTextField: UITextField!
@@ -36,18 +35,27 @@ class SignUpVC: UIViewController {
         printUserData()
     }
     
-    @IBAction private func genderSwitchTapped() {
-        genderLabel.text = genderSwtich.isOn ? Gender.male.rawValue : Gender.female.rawValue
+    @IBAction private func genderSwitchTapped(genderSwitch: UISwitch) {
+        genderLabel.text = genderSwitch.isOn ? Gender.male.rawValue : Gender.female.rawValue
     }
 }
 
-// MARK: - functions
+// MARK: - Functions
 extension SignUpVC {
     private func printUserData() {
-        let user = User(name: nameTextFIeld.text,
-                        gender: Gender.init(rawValue: genderLabel.text ?? "nil"),
-                        email: emailTextField.text,
-                        password: passwordTextField.text)
+        guard let name = nameTextFIeld.text,
+              let genderRawValue = genderLabel.text,
+              let gender = Gender.init(rawValue: genderRawValue),
+              let email = emailTextField.text,
+              let password = passwordTextField.text
+        else {
+            print("You didn't provide your data!")
+            return
+        }
+        let user = User(name: name,
+                        gender: gender,
+                        email: email,
+                        password: password)
         print(confirmPasswordTextField.text)
         print(user)
     }
