@@ -41,11 +41,12 @@ class SignUpVC: UIViewController {
     }
     // MARK: - private functions
     private func printUserData() {
-        print(nameTextFIeld.text)
-        print(genderLabel.text)
-        print(emailTextField.text)
-        print(passwordTextField.text)
+        let user = User(name: nameTextFIeld.text,
+                        gender: Gender.init(rawValue: genderLabel.text ?? "nil"),
+                        email: emailTextField.text,
+                        password: passwordTextField.text)
         print(confirmPasswordTextField.text)
+        print(user)
     }
 }
 
