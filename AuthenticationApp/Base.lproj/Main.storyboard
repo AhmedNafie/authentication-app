@@ -122,8 +122,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="iWF-vX-Uha"/>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="zNc-8F-XiA" id="uve-gr-o8d"/>
+                        <outlet property="emailTextField" destination="RjZ-7f-il2" id="48C-Cq-i2m"/>
                         <outlet property="genderLabel" destination="TD8-Ei-o2z" id="wlq-o9-Goa"/>
                         <outlet property="genderSwtich" destination="Mfd-3u-YKz" id="1Yo-VG-fzs"/>
+                        <outlet property="nameTextFIeld" destination="EX0-UV-NM6" id="qFT-2r-CQC"/>
+                        <outlet property="passwordTextField" destination="WiP-tL-H6O" id="AvK-JW-OlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

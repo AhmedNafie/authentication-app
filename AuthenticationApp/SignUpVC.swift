@@ -13,10 +13,10 @@ enum Gender: String {
 }
 
 struct User {
-    let name: String
-    let gender: Gender
-    let email: String
-    let password: String
+    let name: String?
+    let gender: Gender?
+    let email: String?
+    let password: String?
 }
 
 class SignUpVC: UIViewController {
@@ -33,10 +33,18 @@ class SignUpVC: UIViewController {
     @IBAction private func signUpButtonTapped() {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
         navigationController?.pushViewController(logInVC!, animated: true)
+        printUserData()
     }
     
     @IBAction private func genderSwtichTapped() {
         genderLabel.text = genderSwtich.isOn ? Gender.male.rawValue : Gender.female.rawValue
+    }
+    func printUserData() {
+        print(nameTextFIeld.text)
+        print(genderLabel.text)
+        print(emailTextField.text)
+        print(passwordTextField.text)
+        print(confirmPasswordTextField.text)
     }
 }
 
