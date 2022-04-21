@@ -106,7 +106,7 @@
                                 <rect key="frame" x="287" y="187" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="genderSwtichTapped" destination="BYZ-38-t0r" eventType="valueChanged" id="XN6-O6-N59"/>
+                                    <action selector="genderSwitchTapped" destination="BYZ-38-t0r" eventType="valueChanged" id="XN6-O6-N59"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD8-Ei-o2z">

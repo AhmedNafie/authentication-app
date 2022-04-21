@@ -13,15 +13,15 @@ enum Gender: String {
 }
 
 struct User {
-    let name: String?
-    let gender: Gender?
-    let email: String?
-    let password: String?
+    let name: String
+    let gender: Gender
+    let email: String
+    let password: String
 }
 
 class SignUpVC: UIViewController {
     
-    // MARK: - private Outlets
+    // MARK: - Outlets
     @IBOutlet weak private var nameTextFIeld: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak private var genderSwtich: UISwitch!
@@ -29,17 +29,20 @@ class SignUpVC: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var confirmPasswordTextField: UITextField!
     
-    // MARK: - private Actions
+    // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
         navigationController?.pushViewController(logInVC!, animated: true)
         printUserData()
     }
     
-    @IBAction private func genderSwtichTapped() {
+    @IBAction private func genderSwitchTapped() {
         genderLabel.text = genderSwtich.isOn ? Gender.male.rawValue : Gender.female.rawValue
     }
-    // MARK: - private functions
+}
+
+// MARK: - functions
+extension SignUpVC {
     private func printUserData() {
         let user = User(name: nameTextFIeld.text,
                         gender: Gender.init(rawValue: genderLabel.text ?? "nil"),
@@ -49,5 +52,3 @@ class SignUpVC: UIViewController {
         print(user)
     }
 }
-
-
