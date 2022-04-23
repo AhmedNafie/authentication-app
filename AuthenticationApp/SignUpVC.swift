@@ -30,7 +30,9 @@ class SignUpVC: UIViewController {
     
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
-        goToLogInVC()
+        if let user = validatedUser() {
+            goToLogInVC()
+        }
     }
     
     @IBAction private func genderSwitchTapped(genderSwitch: UISwitch) {
@@ -40,13 +42,14 @@ class SignUpVC: UIViewController {
 
 // MARK: - Functions
 extension SignUpVC {
-    private func printUserData() -> User? {
-        guard let name = nameTextFIeld.text?.validString,
-              let genderRawValue = genderLabel.text?.validString,
-              let gender = Gender.init(rawValue: genderRawValue),
-              let email = emailTextField.text?.validString,
-              let password = passwordTextField.text?.validString,
-              let _ = confirmPasswordTextField.text?.validString
+    private func validatedUser() -> User? {
+        guard
+            let name = nameTextFIeld.text?.validString,
+            let genderRawValue = genderLabel.text?.validString,
+            let gender = Gender.init(rawValue: genderRawValue),
+            let email = emailTextField.text?.validString,
+            let password = passwordTextField.text?.validString,
+            let _ = confirmPasswordTextField.text?.validString
         else {
             print("You didn't provide your data!")
             return nil
@@ -58,10 +61,9 @@ extension SignUpVC {
         print(user)
         return user
     }
+    
     private func goToLogInVC() {
-        if let user = printUserData() {
-            let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
-            navigationController?.pushViewController(logInVC!, animated: true)
-        } else { print("please enter your data") }
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
+        navigationController?.pushViewController(logInVC!, animated: true)
     }
 }

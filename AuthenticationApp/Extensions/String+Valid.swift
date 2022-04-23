@@ -9,9 +9,9 @@ import Foundation
 
 extension String {
     var validString: String? {
-        if self.nonEmpty {
+        if self.isEmpty {
             return self.trimmed
-        } else { return nil
         }
+        return nil
     }
 }

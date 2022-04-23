@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    var nonEmpty: Bool {
+    var isEmpty: Bool {
         self != ""
     }
 }
