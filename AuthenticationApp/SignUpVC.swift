@@ -30,8 +30,7 @@ class SignUpVC: UIViewController {
     
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
-        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
-        navigationController?.pushViewController(logInVC!, animated: true)
+        goToLogInVC()
         printUserData()
     }
     
@@ -58,5 +57,9 @@ extension SignUpVC {
                         email: email,
                         password: password)
         print(user)
+    }
+    private func goToLogInVC() {
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
+        navigationController?.pushViewController(logInVC!, animated: true)
     }
 }
