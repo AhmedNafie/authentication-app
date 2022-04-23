@@ -43,12 +43,12 @@ class SignUpVC: UIViewController {
 // MARK: - Functions
 extension SignUpVC {
     private func printUserData() {
-        guard let name = nameTextFIeld.text?.trimmed,
-              let genderRawValue = genderLabel.text?.trimmed,
+        guard let name = nameTextFIeld.text?.validString,
+              let genderRawValue = genderLabel.text?.validString,
               let gender = Gender.init(rawValue: genderRawValue),
-              let email = emailTextField.text?.trimmed,
-              let password = passwordTextField.text?.trimmed,
-              let _ = confirmPasswordTextField.text?.trimmed
+              let email = emailTextField.text?.validString,
+              let password = passwordTextField.text?.validString,
+              let _ = confirmPasswordTextField.text?.validString
         else {
             print("You didn't provide your data!")
             return
