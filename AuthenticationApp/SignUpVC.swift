@@ -20,6 +20,8 @@ struct User {
 }
 
 class SignUpVC: UIViewController {
+
+    //TODO: fix the spaces problem show mostafa the link  https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
     
     // MARK: - Outlets
     @IBOutlet weak private var nameTextFIeld: UITextField!
@@ -47,9 +49,9 @@ extension SignUpVC {
             let name = nameTextFIeld.text?.validString,
             let genderRawValue = genderLabel.text?.validString,
             let gender = Gender.init(rawValue: genderRawValue),
-            let email = emailTextField.text?.validString,
-            let password = passwordTextField.text?.validString,
-            let _ = confirmPasswordTextField.text?.validString
+            let email = emailTextField.text?.fullyValidForEmail,
+            let password = passwordTextField.text?.FullyValidPassword,
+            let _ = confirmPasswordTextField.text?.FullyValidPassword
         else {
             print("You didn't provide your data!")
             return nil

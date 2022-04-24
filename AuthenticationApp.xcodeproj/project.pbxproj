@@ -18,6 +18,10 @@
 		45EE39F52814413700DFDCFA /* String+Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE39F42814413700DFDCFA /* String+Trimmed.swift */; };
 		45EE39F7281443AE00DFDCFA /* String+IsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE39F6281443AE00DFDCFA /* String+IsEmpty.swift */; };
 		45EE39F92814462800DFDCFA /* String+Valid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE39F82814462800DFDCFA /* String+Valid.swift */; };
+		45EE39FB2815992600DFDCFA /* String+IsValidMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE39FA2815992600DFDCFA /* String+IsValidMail.swift */; };
+		45EE39FD281599AA00DFDCFA /* String+FullyValidForEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE39FC281599AA00DFDCFA /* String+FullyValidForEmail.swift */; };
+		45EE39FF28159E1700DFDCFA /* String+IsValidPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE39FE28159E1700DFDCFA /* String+IsValidPassword.swift */; };
+		45EE3A0128159FBE00DFDCFA /* String+FullyValidPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE3A0028159FBE00DFDCFA /* String+FullyValidPassword.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		45EE39F42814413700DFDCFA /* String+Trimmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimmed.swift"; sourceTree = "<group>"; };
 		45EE39F6281443AE00DFDCFA /* String+IsEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmpty.swift"; sourceTree = "<group>"; };
 		45EE39F82814462800DFDCFA /* String+Valid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Valid.swift"; sourceTree = "<group>"; };
+		45EE39FA2815992600DFDCFA /* String+IsValidMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidMail.swift"; sourceTree = "<group>"; };
+		45EE39FC281599AA00DFDCFA /* String+FullyValidForEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FullyValidForEmail.swift"; sourceTree = "<group>"; };
+		45EE39FE28159E1700DFDCFA /* String+IsValidPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidPassword.swift"; sourceTree = "<group>"; };
+		45EE3A0028159FBE00DFDCFA /* String+FullyValidPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FullyValidPassword.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,10 @@
 				45EE39F42814413700DFDCFA /* String+Trimmed.swift */,
 				45EE39F6281443AE00DFDCFA /* String+IsEmpty.swift */,
 				45EE39F82814462800DFDCFA /* String+Valid.swift */,
+				45EE39FE28159E1700DFDCFA /* String+IsValidPassword.swift */,
+				45EE39FA2815992600DFDCFA /* String+IsValidMail.swift */,
+				45EE39FC281599AA00DFDCFA /* String+FullyValidForEmail.swift */,
+				45EE3A0028159FBE00DFDCFA /* String+FullyValidPassword.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,7 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				452F551A280F988900311B55 /* SignUpVC.swift in Sources */,
+				45EE39FF28159E1700DFDCFA /* String+IsValidPassword.swift in Sources */,
 				45B2382828103B8600A93AAC /* ProfileVC.swift in Sources */,
+				45EE3A0128159FBE00DFDCFA /* String+FullyValidPassword.swift in Sources */,
+				45EE39FB2815992600DFDCFA /* String+IsValidMail.swift in Sources */,
+				45EE39FD281599AA00DFDCFA /* String+FullyValidForEmail.swift in Sources */,
 				452F5516280F988900311B55 /* AppDelegate.swift in Sources */,
 				45EE39F52814413700DFDCFA /* String+Trimmed.swift in Sources */,
 				45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */,
