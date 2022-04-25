@@ -9,9 +9,6 @@ import Foundation
 
 extension String {
     var isNotEmpty: Bool {
-        if !self.trimmed.isEmpty {
-            return true
-        }
-        return false
+        !self.trimmed.isEmpty
     }
 }
