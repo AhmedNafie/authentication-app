@@ -52,11 +52,11 @@ extension SignUpVC {
     
     private func checkDataFieldsEmptiness() -> Bool {
         guard
-            let name = nameTextFIeld.text?.isNotEmpty,
-            let genderRawValue = genderLabel.text?.isNotEmpty,
-            let email = emailTextField.text?.isNotEmpty,
-            let password = passwordTextField.text?.isNotEmpty,
-            let _ = confirmPasswordTextField.text?.isNotEmpty
+            nameTextFIeld.text!.isNotEmpty,
+            genderLabel.text!.isNotEmpty,
+            emailTextField.text!.isNotEmpty,
+            passwordTextField.text!.isNotEmpty,
+            confirmPasswordTextField.text!.isNotEmpty
         else {
             return false
             print("You didn't provide your data!")
