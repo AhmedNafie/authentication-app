@@ -32,12 +32,12 @@ class SignUpVC: UIViewController {
 extension SignUpVC {
     private func validatedUser() -> User? {
         guard
-            let name = nameTextFIeld.text?.validString,
-            let genderRawValue = genderLabel.text?.validString,
+            let name = nameTextFIeld.text?.trimmed,
+            let genderRawValue = genderLabel.text?.trimmed,
             let gender = Gender.init(rawValue: genderRawValue),
-            let email = emailTextField.text?.fullyValidForEmail,
-            let password = passwordTextField.text?.FullyValidPassword,
-            let _ = confirmPasswordTextField.text?.FullyValidPassword
+            let email = emailTextField.text?.trimmed,
+            let password = passwordTextField.text?.trimmed,
+            let _ = confirmPasswordTextField.text?.trimmed
         else {
             print("You didn't provide your data!")
             return nil
@@ -50,6 +50,20 @@ extension SignUpVC {
         return user
     }
     
+    private func checkDataFieldsEmptiness() -> Bool {
+        guard
+            let name = nameTextFIeld.text?.isNotEmpty,
+            let genderRawValue = genderLabel.text?.isNotEmpty,
+            let email = emailTextField.text?.isNotEmpty,
+            let password = passwordTextField.text?.isNotEmpty,
+            let _ = confirmPasswordTextField.text?.isNotEmpty
+        else {
+            print("You didn't provide your data!")
+            return false
+        }
+        return true
+        
+    }
     private func goToLogInVC() {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
         navigationController?.pushViewController(logInVC!, animated: true)

@@ -1,5 +1,5 @@
 //
-//  String+Valid.swift
+//  String+isNotEmpty.swift
 //  AuthenticationApp
 //
 //  Created by Ahmed Nafie on 23/04/2022.
