@@ -42,7 +42,7 @@ extension SignUpVC {
             print("You didn't provide your data!")
             return nil
         }
-        let user = User(name: name,
+        let user = User(name: nameTextFIeld.text!.trimmed,
                         gender: gender,
                         email: email,
                         password: password)
@@ -58,8 +58,9 @@ extension SignUpVC {
             let password = passwordTextField.text?.isNotEmpty,
             let _ = confirmPasswordTextField.text?.isNotEmpty
         else {
-            print("You didn't provide your data!")
             return false
+            print("You didn't provide your data!")
+
         }
         return true
         
