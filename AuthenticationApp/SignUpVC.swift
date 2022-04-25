@@ -8,8 +8,6 @@
 import UIKit
 
 class SignUpVC: UIViewController {
-
-    //TODO: fix the spaces problem show mostafa the link  https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
     
     // MARK: - Outlets
     @IBOutlet weak private var nameTextFIeld: UITextField!
