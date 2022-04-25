@@ -7,21 +7,7 @@
 
 import UIKit
 
-enum Gender: String {
-    case male = "Male"
-    case female = "Female"
-}
-
-struct User {
-    let name: String
-    let gender: Gender
-    let email: String
-    let password: String
-}
-
 class SignUpVC: UIViewController {
-
-    //TODO: fix the spaces problem show mostafa the link  https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
     
     // MARK: - Outlets
     @IBOutlet weak private var nameTextFIeld: UITextField!
@@ -33,7 +19,7 @@ class SignUpVC: UIViewController {
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
-            goToLogInVC()
+            goToLogInVC(with: user)
         }
     }
     
@@ -45,27 +31,47 @@ class SignUpVC: UIViewController {
 // MARK: - Functions
 extension SignUpVC {
     private func validatedUser() -> User? {
-        guard
-            let name = nameTextFIeld.text?.validString,
-            let genderRawValue = genderLabel.text?.validString,
-            let gender = Gender.init(rawValue: genderRawValue),
-            let email = emailTextField.text?.fullyValidForEmail,
-            let password = passwordTextField.text?.FullyValidPassword,
-            let _ = confirmPasswordTextField.text?.FullyValidPassword
-        else {
+        guard isDataProvided() else {
             print("You didn't provide your data!")
             return nil
         }
-        let user = User(name: name,
-                        gender: gender,
-                        email: email,
-                        password: password)
-        print(user)
-        return user
+        
+        guard emailTextField.text!.isValidEmail else {
+            print("Email Is Not Valid")
+            return nil
+        }
+        
+        guard passwordTextField.text!.isValidPassword else {
+            print("Invalid Password Format")
+            return nil
+        }
+        
+        guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
+            print("Passwords Doesn't Match")
+            return nil
+        }
+        
+        return User(name: nameTextFIeld.text!.trimmed,
+                        gender: .init(rawValue: genderLabel.text!)!,
+                        email: emailTextField.text!.trimmed,
+                        password: passwordTextField.text!.trimmed)
     }
     
-    private func goToLogInVC() {
-        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
-        navigationController?.pushViewController(logInVC!, animated: true)
+    private func isDataProvided() -> Bool {
+        guard
+            nameTextFIeld.text!.isNotEmpty,
+            emailTextField.text!.isNotEmpty,
+            passwordTextField.text!.isNotEmpty,
+            confirmPasswordTextField.text!.isNotEmpty
+        else {
+            return false
+        }
+        return true
+    }
+    
+    private func goToLogInVC(with user: User) {
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+        logInVC.user = user
+        navigationController?.pushViewController(logInVC, animated: true)
     }
 }

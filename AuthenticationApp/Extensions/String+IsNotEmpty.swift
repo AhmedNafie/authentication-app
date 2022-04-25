@@ -1,5 +1,5 @@
 //
-//  String+NoEmptyStrings.swift
+//  String+isNotEmpty.swift
 //  AuthenticationApp
 //
 //  Created by Ahmed Nafie on 23/04/2022.
@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    var isEmpty: Bool {
-        self != ""
+    var isNotEmpty: Bool {
+        !self.trimmed.isEmpty
     }
 }
