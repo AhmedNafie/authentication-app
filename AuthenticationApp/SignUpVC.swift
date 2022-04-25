@@ -19,7 +19,7 @@ class SignUpVC: UIViewController {
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
-            goToLogInVC()
+            goToLogInVC(With: user)
         }
     }
     
@@ -31,42 +31,53 @@ class SignUpVC: UIViewController {
 // MARK: - Functions
 extension SignUpVC {
     private func validatedUser() -> User? {
-        guard
-            let name = nameTextFIeld.text?.trimmed,
-            let genderRawValue = genderLabel.text?.trimmed,
-            let gender = Gender.init(rawValue: genderRawValue),
-            let email = emailTextField.text?.trimmed,
-            let password = passwordTextField.text?.trimmed,
-            let _ = confirmPasswordTextField.text?.trimmed
-        else {
+        guard checkDataFieldsEmptiness() else {
             print("You didn't provide your data!")
             return nil
         }
+        
+        guard emailTextField.text!.trimmed.isValidEmail else {
+            print("Email Is Not Valid")
+            return nil
+        }
+        
+        guard passwordTextField.text!.trimmed.isValidPassword else {
+            print("Invalid Password Format")
+            return nil
+        }
+        
+        guard passwordTextField.text == confirmPasswordTextField.text else {
+            print("Passwords Doesn't Match")
+            return nil
+        }
+        
+        guard let genderRawValue = genderLabel.text?.trimmed,
+              let gender = Gender.init(rawValue: genderRawValue) else {
+                  return nil
+              }
+        
         let user = User(name: nameTextFIeld.text!.trimmed,
                         gender: gender,
-                        email: email,
-                        password: password)
-        print(user)
+                        email: emailTextField.text!.trimmed,
+                        password: passwordTextField.text!.trimmed)
         return user
     }
     
     private func checkDataFieldsEmptiness() -> Bool {
         guard
             nameTextFIeld.text!.isNotEmpty,
-            genderLabel.text!.isNotEmpty,
             emailTextField.text!.isNotEmpty,
             passwordTextField.text!.isNotEmpty,
             confirmPasswordTextField.text!.isNotEmpty
         else {
             return false
-            print("You didn't provide your data!")
-
         }
         return true
         
     }
-    private func goToLogInVC() {
-        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
-        navigationController?.pushViewController(logInVC!, animated: true)
+    private func goToLogInVC(With user: User) {
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+        navigationController?.pushViewController(logInVC, animated: true)
+        logInVC.user = user
     }
 }

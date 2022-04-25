@@ -8,6 +8,12 @@
 import UIKit
 
 class LogInVC: UIViewController {
+    var user: User?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(user)
+    }
     
     @IBAction func logInButtonTapped() {
         let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC")
