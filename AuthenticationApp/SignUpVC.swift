@@ -7,18 +7,6 @@
 
 import UIKit
 
-enum Gender: String {
-    case male = "Male"
-    case female = "Female"
-}
-
-struct User {
-    let name: String
-    let gender: Gender
-    let email: String
-    let password: String
-}
-
 class SignUpVC: UIViewController {
 
     //TODO: fix the spaces problem show mostafa the link  https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
