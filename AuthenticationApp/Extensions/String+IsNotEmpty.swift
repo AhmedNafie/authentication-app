@@ -8,10 +8,10 @@
 import Foundation
 
 extension String {
-    var validString: String? {
-        if self.isEmpty {
-            return self.trimmed
+    var isNotEmpty: Bool {
+        if !self.trimmed.isEmpty {
+            return true
         }
-        return nil
+        return false
     }
 }

@@ -9,6 +9,6 @@ import Foundation
 
 extension String {
     var isValidPassword: Bool {
-        NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[0-9]).{8,}$").evaluate(with: self)
+        NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[0-9]).{8,}$").evaluate(with: self.trimmed)
     }
 }
