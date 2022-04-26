@@ -8,9 +8,11 @@
 import UIKit
 
 class SignUpVC: UIViewController {
+    //TODO: Present errors as alerts
+    //TODO: add gitignore file
     
     // MARK: - Outlets
-    @IBOutlet weak private var nameTextFIeld: UITextField!
+    @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
@@ -51,7 +53,7 @@ extension SignUpVC {
             return nil
         }
         
-        return User(name: nameTextFIeld.text!.trimmed,
+        return User(name: nameTextField.text!.trimmed,
                         gender: .init(rawValue: genderLabel.text!)!,
                         email: emailTextField.text!.trimmed,
                         password: passwordTextField.text!.trimmed)
@@ -59,7 +61,7 @@ extension SignUpVC {
     
     private func isDataProvided() -> Bool {
         guard
-            nameTextFIeld.text!.isNotEmpty,
+            nameTextField.text!.isNotEmpty,
             emailTextField.text!.isNotEmpty,
             passwordTextField.text!.isNotEmpty,
             confirmPasswordTextField.text!.isNotEmpty
