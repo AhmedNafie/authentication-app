@@ -8,6 +8,11 @@
 import UIKit
 
 class LogInVC: UIViewController {
+    // MARK: - Outlets
+    @IBOutlet weak private var emailTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+   
+    // MARK: - Properties
     var user: User?
     
     override func viewDidLoad() {

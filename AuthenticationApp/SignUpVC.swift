@@ -8,8 +8,8 @@
 import UIKit
 
 class SignUpVC: UIViewController {
-    //TODO: Present errors as alerts
     //TODO: add gitignore file
+    //TODO: check lower cased for login
     
     // MARK: - Outlets
     @IBOutlet weak private var nameTextField: UITextField!
@@ -30,7 +30,7 @@ class SignUpVC: UIViewController {
     }
 }
 
-// MARK: - Functions
+// MARK: - Private Methods
 extension SignUpVC {
     private func validatedUser() -> User? {
         guard isDataProvided() else {
