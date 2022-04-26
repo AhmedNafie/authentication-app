@@ -34,7 +34,7 @@ class SignUpVC: UIViewController {
 extension SignUpVC {
     private func validatedUser() -> User? {
         guard isDataProvided() else {
-            print("You didn't provide your data!")
+            showAlert("You didn't Provide Your Data!")
             return nil
         }
         
