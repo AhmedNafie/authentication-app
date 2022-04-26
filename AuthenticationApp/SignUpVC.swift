@@ -39,17 +39,17 @@ extension SignUpVC {
         }
         
         guard emailTextField.text!.isValidEmail else {
-            print("Email Is Not Valid")
+            showAlert("Email Is Not Valid")
             return nil
         }
         
         guard passwordTextField.text!.isValidPassword else {
-            print("Invalid Password Format")
+            showAlert("Invalid Password Format")
             return nil
         }
         
         guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
-            print("Passwords Doesn't Match")
+            showAlert("Passwords Doesn't Match")
             return nil
         }
         
