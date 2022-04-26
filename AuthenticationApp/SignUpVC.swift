@@ -31,25 +31,25 @@ class SignUpVC: UIViewController {
 }
 
 // MARK: - Private Methods
-extension SignUpVC {
-    private func validatedUser() -> User? {
+private extension SignUpVC {
+    func validatedUser() -> User? {
         guard isDataProvided() else {
-            showAlert("You didn't Provide Your Data!")
+            showAlert(with: "You didn't Provide Your Data!")
             return nil
         }
         
         guard emailTextField.text!.isValidEmail else {
-            showAlert("Email Is Not Valid")
+            showAlert(with: "Email Is Not Valid")
             return nil
         }
         
         guard passwordTextField.text!.isValidPassword else {
-            showAlert("Invalid Password Format")
+            showAlert(with: "Invalid Password Format")
             return nil
         }
         
         guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
-            showAlert("Passwords Doesn't Match")
+            showAlert(with: "Passwords Doesn't Match")
             return nil
         }
         
@@ -59,7 +59,7 @@ extension SignUpVC {
                     password: passwordTextField.text!.trimmed)
     }
     
-    private func isDataProvided() -> Bool {
+    func isDataProvided() -> Bool {
         guard
             nameTextField.text!.isNotEmpty,
             emailTextField.text!.isNotEmpty,
@@ -71,7 +71,7 @@ extension SignUpVC {
         return true
     }
     
-    private func goToLogInVC(with user: User) {
+    func goToLogInVC(with user: User) {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
         logInVC.user = user
         navigationController?.pushViewController(logInVC, animated: true)

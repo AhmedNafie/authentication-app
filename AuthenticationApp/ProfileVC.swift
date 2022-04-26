@@ -9,4 +9,11 @@ import UIKit
 
 class ProfileVC: UIViewController {
     var user: User?
+    
+    // MARK: - Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(user)
+    }
+    
 }

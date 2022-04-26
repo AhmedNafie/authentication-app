@@ -15,48 +15,41 @@ class LogInVC: UIViewController {
     // MARK: - Properties
     var user: User?
     
-    // MARK: - Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print(user)
-    }
-    
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
-        if let user = user,
-           isLogINDataApproved() {
+        if let user = user, isValidCredentials() {
             goToProfileVC(with: user)
         }
     }
 }
 
 // MARK: - Private Methods
-extension LogInVC {
-    private func isLogINDataApproved() -> Bool {
+private extension LogInVC {
+    func isValidCredentials() -> Bool {
         guard isDataProvided() else {
-            showAlert("You didn't Provide Your Data!")
+            showAlert(with: "You didn't Provide Your Data!")
             return false
         }
         
         guard emailTextField.text!.isValidEmail else {
-            showAlert("Email Is Not Valid")
+            showAlert(with: "Email Is Not Valid")
             return false
         }
         
         guard emailTextField.text?.trimmed == user?.email else {
-            showAlert("Email Is Not Found!")
+            showAlert(with: "Email Is Not Found!")
             return false
         }
         
         guard passwordTextField.text?.trimmed == user?.password else {
-            showAlert("Wrong Password")
+            showAlert(with: "Wrong Password")
             return false
         }
         
         return true
     }
     
-    private func isDataProvided() -> Bool {
+    func isDataProvided() -> Bool {
         guard
             emailTextField.text!.isNotEmpty,
             passwordTextField.text!.isNotEmpty
@@ -66,10 +59,10 @@ extension LogInVC {
         return true
     }
     
-    private func goToProfileVC(with user: User) {
-        let ProfileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
-        ProfileVC.user = user
-        navigationController?.pushViewController(ProfileVC, animated: true)
+    func goToProfileVC(with user: User) {
+        let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        profileVC.user = user
+        navigationController?.pushViewController(profileVC, animated: true)
     }
 }
 
