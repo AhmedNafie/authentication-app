@@ -8,9 +8,11 @@
 import UIKit
 
 class SignUpVC: UIViewController {
+    //TODO: add gitignore file
+    //TODO: check lower cased for login
     
     // MARK: - Outlets
-    @IBOutlet weak private var nameTextFIeld: UITextField!
+    @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
@@ -28,38 +30,38 @@ class SignUpVC: UIViewController {
     }
 }
 
-// MARK: - Functions
-extension SignUpVC {
-    private func validatedUser() -> User? {
+// MARK: - Private Methods
+private extension SignUpVC {
+    func validatedUser() -> User? {
         guard isDataProvided() else {
-            print("You didn't provide your data!")
+            showAlert(with: "You didn't Provide Your Data!")
             return nil
         }
         
         guard emailTextField.text!.isValidEmail else {
-            print("Email Is Not Valid")
+            showAlert(with: "Email Is Not Valid")
             return nil
         }
         
         guard passwordTextField.text!.isValidPassword else {
-            print("Invalid Password Format")
+            showAlert(with: "Invalid Password Format")
             return nil
         }
         
         guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
-            print("Passwords Doesn't Match")
+            showAlert(with: "Passwords Doesn't Match")
             return nil
         }
         
-        return User(name: nameTextFIeld.text!.trimmed,
-                        gender: .init(rawValue: genderLabel.text!)!,
-                        email: emailTextField.text!.trimmed,
-                        password: passwordTextField.text!.trimmed)
+        return User(name: nameTextField.text!.trimmed,
+                    gender: .init(rawValue: genderLabel.text!)!,
+                    email: emailTextField.text!.trimmed,
+                    password: passwordTextField.text!.trimmed)
     }
     
-    private func isDataProvided() -> Bool {
+    func isDataProvided() -> Bool {
         guard
-            nameTextFIeld.text!.isNotEmpty,
+            nameTextField.text!.isNotEmpty,
             emailTextField.text!.isNotEmpty,
             passwordTextField.text!.isNotEmpty,
             confirmPasswordTextField.text!.isNotEmpty
@@ -69,7 +71,7 @@ extension SignUpVC {
         return true
     }
     
-    private func goToLogInVC(with user: User) {
+    func goToLogInVC(with user: User) {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
         logInVC.user = user
         navigationController?.pushViewController(logInVC, animated: true)
