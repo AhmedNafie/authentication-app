@@ -8,5 +8,5 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-
+    var user: User?
 }

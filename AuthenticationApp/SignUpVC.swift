@@ -54,9 +54,9 @@ extension SignUpVC {
         }
         
         return User(name: nameTextField.text!.trimmed,
-                        gender: .init(rawValue: genderLabel.text!)!,
-                        email: emailTextField.text!.trimmed,
-                        password: passwordTextField.text!.trimmed)
+                    gender: .init(rawValue: genderLabel.text!)!,
+                    email: emailTextField.text!.trimmed,
+                    password: passwordTextField.text!.trimmed)
     }
     
     private func isDataProvided() -> Bool {
