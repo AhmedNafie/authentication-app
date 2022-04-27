@@ -25,6 +25,7 @@ class ProfileVC: UIViewController {
     
 }
 
+//MARK: Private methods
 private extension ProfileVC {
     func showUserInfo() {
         if let name = user?.name,
