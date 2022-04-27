@@ -21,7 +21,7 @@
 		45EE3A032815ADD000DFDCFA /* String+isValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE3A022815ADD000DFDCFA /* String+isValidEmail.swift */; };
 		45EE3A052816EB2400DFDCFA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE3A042816EB2400DFDCFA /* User.swift */; };
 		45EE3A072818281D00DFDCFA /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE3A062818281D00DFDCFA /* UIViewController+showAlert.swift */; };
-		45EE3A092819830200DFDCFA /* UiNavigationController+completionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE3A082819830200DFDCFA /* UiNavigationController+completionHandler.swift */; };
+		45EE3A092819830200DFDCFA /* UINavigationController+completionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE3A082819830200DFDCFA /* UINavigationController+completionHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 		45EE3A022815ADD000DFDCFA /* String+isValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmail.swift"; sourceTree = "<group>"; };
 		45EE3A042816EB2400DFDCFA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		45EE3A062818281D00DFDCFA /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
-		45EE3A082819830200DFDCFA /* UiNavigationController+completionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiNavigationController+completionHandler.swift"; sourceTree = "<group>"; };
+		45EE3A082819830200DFDCFA /* UINavigationController+completionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+completionHandler.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 				45EE39FE28159E1700DFDCFA /* String+IsValidPassword.swift */,
 				45EE3A022815ADD000DFDCFA /* String+isValidEmail.swift */,
 				45EE3A062818281D00DFDCFA /* UIViewController+showAlert.swift */,
-				45EE3A082819830200DFDCFA /* UiNavigationController+completionHandler.swift */,
+				45EE3A082819830200DFDCFA /* UINavigationController+completionHandler.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			files = (
 				45EE3A052816EB2400DFDCFA /* User.swift in Sources */,
 				452F551A280F988900311B55 /* SignUpVC.swift in Sources */,
-				45EE3A092819830200DFDCFA /* UiNavigationController+completionHandler.swift in Sources */,
+				45EE3A092819830200DFDCFA /* UINavigationController+completionHandler.swift in Sources */,
 				45EE3A072818281D00DFDCFA /* UIViewController+showAlert.swift in Sources */,
 				45EE39FF28159E1700DFDCFA /* String+IsValidPassword.swift in Sources */,
 				45B2382828103B8600A93AAC /* ProfileVC.swift in Sources */,
