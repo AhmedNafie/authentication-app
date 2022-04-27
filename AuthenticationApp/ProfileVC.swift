@@ -13,7 +13,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var emailLabel: UILabel!
     @IBOutlet weak private var genderLabel: UILabel!
     
-    
     // MARK: - Properties
     var user: User?
     
