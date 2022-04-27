@@ -37,6 +37,7 @@ private extension LogInVC {
         }
         
         guard emailTextField.text?.trimmed.lowercased() == user?.email.lowercased() else {
+
             showAlert(with: "Email Is Not Found!")
             return false
         }
