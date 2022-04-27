@@ -7,6 +7,7 @@
 
 import UIKit
 
+class ProfileVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var emailLabel: UILabel!
