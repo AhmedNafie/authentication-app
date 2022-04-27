@@ -36,7 +36,8 @@ private extension LogInVC {
             return false
         }
         
-        guard emailTextField.text?.trimmed == user?.email else {
+        guard emailTextField.text?.trimmed.lowercased() == user?.email.lowercased() else {
+
             showAlert(with: "Email Is Not Found!")
             return false
         }
@@ -62,7 +63,9 @@ private extension LogInVC {
     func goToProfileVC(with user: User) {
         let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         profileVC.user = user
-        navigationController?.pushViewController(profileVC, animated: true)
+        navigationController?.pushViewController(profileVC, animated: true) {
+            self.navigationController?.viewControllers = [profileVC]
+        }
     }
 }
 

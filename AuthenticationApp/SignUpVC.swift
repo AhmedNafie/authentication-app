@@ -8,8 +8,8 @@
 import UIKit
 
 class SignUpVC: UIViewController {
-    //TODO: add gitignore file
-    //TODO: check lower cased for login
+    //TODO: Give app an icon
+    //TODO: logout
     
     // MARK: - Outlets
     @IBOutlet weak private var nameTextField: UITextField!
@@ -37,17 +37,17 @@ private extension SignUpVC {
             showAlert(with: "You didn't Provide Your Data!")
             return nil
         }
-        
+
         guard emailTextField.text!.isValidEmail else {
             showAlert(with: "Email Is Not Valid")
             return nil
         }
-        
+
         guard passwordTextField.text!.isValidPassword else {
             showAlert(with: "Invalid Password Format")
             return nil
         }
-        
+
         guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
             showAlert(with: "Passwords Doesn't Match")
             return nil
