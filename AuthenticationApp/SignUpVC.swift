@@ -9,7 +9,6 @@ import UIKit
 
 class SignUpVC: UIViewController {
     //TODO: add gitignore file
-    //TODO: check lower cased for login
     //TODO: show user data in profile
     //TODO: logout
     
