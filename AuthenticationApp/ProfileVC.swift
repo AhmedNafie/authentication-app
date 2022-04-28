@@ -7,13 +7,13 @@
 
 import UIKit
 
+class ProfileVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var emailLabel: UILabel!
     @IBOutlet weak private var genderLabel: UILabel!
-  
+    
     // MARK: - Properties
-
     var user: User?
     
     // MARK: - Lifecycle Methods
@@ -22,6 +22,11 @@ import UIKit
         showUserInfo()
     }
     
+    // MARK: - Actions
+    @IBAction func logoutButtonTapped() {
+        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
+        navigationController?.viewControllers = [signUpVC!]
+    }
 }
 
 //MARK: Private methods
