@@ -27,7 +27,6 @@ class ProfileVC: UIViewController {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
         navigationController?.viewControllers = [signUpVC]
     }
-    
 }
 
 //MARK: Private methods

@@ -26,27 +26,27 @@ class LogInVC: UIViewController {
 // MARK: - Private Methods
 private extension LogInVC {
     func isValidCredentials() -> Bool {
-//        guard isDataProvided() else {
-//            showAlert(with: "You didn't Provide Your Data!")
-//            return false
-//        }
-//        
-//        guard emailTextField.text!.isValidEmail else {
-//            showAlert(with: "Email Is Not Valid")
-//            return false
-//        }
-//        
-//        guard emailTextField.text?.trimmed.lowercased() == user?.email.lowercased() else {
-//
-//            showAlert(with: "Email Is Not Found!")
-//            return false
-//        }
-//        
-//        guard passwordTextField.text?.trimmed == user?.password else {
-//            showAlert(with: "Wrong Password")
-//            return false
-//        }
-//        
+        guard isDataProvided() else {
+            showAlert(with: "You didn't Provide Your Data!")
+            return false
+        }
+        
+        guard emailTextField.text!.isValidEmail else {
+            showAlert(with: "Email Is Not Valid")
+            return false
+        }
+        
+        guard emailTextField.text?.trimmed.lowercased() == user?.email.lowercased() else {
+
+            showAlert(with: "Email Is Not Found!")
+            return false
+        }
+        
+        guard passwordTextField.text?.trimmed == user?.password else {
+            showAlert(with: "Wrong Password")
+            return false
+        }
+        
         return true
     }
     
