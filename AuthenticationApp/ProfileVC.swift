@@ -14,7 +14,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var genderLabel: UILabel!
   
     // MARK: - Properties
-
     var user: User?
     
     // MARK: - Lifecycle Methods
@@ -23,6 +22,10 @@ class ProfileVC: UIViewController {
         showUserInfo()
     }
     
+    // MARK: - Actions
+    @IBAction func logoutButtonTapped() {
+        
+        }
 }
 
 //MARK: Private methods
