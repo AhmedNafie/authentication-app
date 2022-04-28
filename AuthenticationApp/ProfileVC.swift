@@ -24,8 +24,8 @@ class ProfileVC: UIViewController {
     
     // MARK: - Actions
     @IBAction func logoutButtonTapped() {
-        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
-        navigationController?.viewControllers = [signUpVC]
+        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
+        navigationController?.viewControllers = [signUpVC!]
     }
 }
 
