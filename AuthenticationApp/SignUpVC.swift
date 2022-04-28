@@ -33,25 +33,25 @@ class SignUpVC: UIViewController {
 // MARK: - Private Methods
 private extension SignUpVC {
     func validatedUser() -> User? {
-        guard isDataProvided() else {
-            showAlert(with: "You didn't Provide Your Data!")
-            return nil
-        }
-
-        guard emailTextField.text!.isValidEmail else {
-            showAlert(with: "Email Is Not Valid")
-            return nil
-        }
-
-        guard passwordTextField.text!.isValidPassword else {
-            showAlert(with: "Invalid Password Format")
-            return nil
-        }
-
-        guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
-            showAlert(with: "Passwords Doesn't Match")
-            return nil
-        }
+//        guard isDataProvided() else {
+//            showAlert(with: "You didn't Provide Your Data!")
+//            return nil
+//        }
+//
+//        guard emailTextField.text!.isValidEmail else {
+//            showAlert(with: "Email Is Not Valid")
+//            return nil
+//        }
+//
+//        guard passwordTextField.text!.isValidPassword else {
+//            showAlert(with: "Invalid Password Format")
+//            return nil
+//        }
+//
+//        guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
+//            showAlert(with: "Passwords Doesn't Match")
+//            return nil
+//        }
         
         return User(name: nameTextField.text!.trimmed,
                     gender: .init(rawValue: genderLabel.text!)!,

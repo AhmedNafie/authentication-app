@@ -12,7 +12,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var emailLabel: UILabel!
     @IBOutlet weak private var genderLabel: UILabel!
-  
+    
     // MARK: - Properties
     var user: User?
     
@@ -24,8 +24,10 @@ class ProfileVC: UIViewController {
     
     // MARK: - Actions
     @IBAction func logoutButtonTapped() {
-        
-        }
+        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        navigationController?.viewControllers = [signUpVC]
+    }
+    
 }
 
 //MARK: Private methods
