@@ -95,7 +95,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-p9-Xhf">
-                                <rect key="frame" x="167" y="739" width="80" height="35.5"/>
+                                <rect key="frame" x="167" y="773" width="80" height="35.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Signup">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
@@ -113,26 +113,34 @@
                             <constraint firstItem="zNc-8F-XiA" firstAttribute="leading" secondItem="kSK-Bc-ESR" secondAttribute="leading" id="6kh-Mc-3A9"/>
                             <constraint firstItem="IeW-EL-Rnn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="7Lm-7N-bT9"/>
                             <constraint firstItem="0cR-k1-YmD" firstAttribute="top" secondItem="EX0-UV-NM6" secondAttribute="bottom" constant="30" id="9FY-6z-Spz"/>
+                            <constraint firstItem="Mfd-3u-YKz" firstAttribute="top" secondItem="0cR-k1-YmD" secondAttribute="top" id="AOB-rR-x5m"/>
                             <constraint firstItem="EX0-UV-NM6" firstAttribute="leading" secondItem="IeW-EL-Rnn" secondAttribute="leading" id="BQM-nA-g8A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IeW-EL-Rnn" secondAttribute="trailing" constant="60" id="BW9-J4-3Yn"/>
                             <constraint firstItem="VIf-az-fxh" firstAttribute="top" secondItem="RjZ-7f-il2" secondAttribute="bottom" constant="30" id="BXe-bd-0rz"/>
-                            <constraint firstItem="BEu-p9-Xhf" firstAttribute="top" secondItem="zNc-8F-XiA" secondAttribute="top" constant="100" id="Ctr-li-eyz"/>
+                            <constraint firstItem="BEu-p9-Xhf" firstAttribute="top" secondItem="zNc-8F-XiA" secondAttribute="bottom" constant="100" id="Ctr-li-eyz"/>
                             <constraint firstItem="WiP-tL-H6O" firstAttribute="top" secondItem="VIf-az-fxh" secondAttribute="bottom" constant="25" id="EEG-ob-9aK"/>
                             <constraint firstItem="TD8-Ei-o2z" firstAttribute="leading" secondItem="0cR-k1-YmD" secondAttribute="trailing" constant="30" id="EzZ-Tn-B4H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zNc-8F-XiA" secondAttribute="trailing" constant="60" id="GVy-gP-lJo"/>
                             <constraint firstItem="BEu-p9-Xhf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HYz-WM-0Hr"/>
                             <constraint firstItem="Mfd-3u-YKz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TD8-Ei-o2z" secondAttribute="trailing" constant="20" id="IYS-1O-Pir"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9D8-l2-K90" secondAttribute="trailing" constant="295" id="JNN-Yc-31J"/>
                             <constraint firstItem="RjZ-7f-il2" firstAttribute="leading" secondItem="9D8-l2-K90" secondAttribute="leading" id="NEd-yo-Zx3"/>
-                            <constraint firstItem="TD8-Ei-o2z" firstAttribute="top" secondItem="EX0-UV-NM6" secondAttribute="bottom" constant="30" id="OKp-et-f0q"/>
                             <constraint firstItem="kSK-Bc-ESR" firstAttribute="top" secondItem="WiP-tL-H6O" secondAttribute="bottom" constant="30" id="Wyb-u6-sc7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VIf-az-fxh" secondAttribute="trailing" constant="250" id="aFv-TW-zzL"/>
                             <constraint firstItem="RjZ-7f-il2" firstAttribute="top" secondItem="9D8-l2-K90" secondAttribute="bottom" constant="25" id="blP-to-UnE"/>
                             <constraint firstItem="EX0-UV-NM6" firstAttribute="top" secondItem="IeW-EL-Rnn" secondAttribute="bottom" constant="25" id="e1p-gP-4q2"/>
                             <constraint firstItem="9D8-l2-K90" firstAttribute="top" secondItem="0cR-k1-YmD" secondAttribute="bottom" constant="30" id="eWA-eN-nph"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mfd-3u-YKz" secondAttribute="trailing" constant="78" id="fp0-GW-MGf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kSK-Bc-ESR" secondAttribute="trailing" constant="60" id="lGI-cO-rPx"/>
                             <constraint firstItem="9D8-l2-K90" firstAttribute="leading" secondItem="0cR-k1-YmD" secondAttribute="leading" id="lI7-Zw-7LL"/>
                             <constraint firstItem="0cR-k1-YmD" firstAttribute="leading" secondItem="EX0-UV-NM6" secondAttribute="leading" id="lqp-fd-eGg"/>
+                            <constraint firstItem="TD8-Ei-o2z" firstAttribute="top" secondItem="0cR-k1-YmD" secondAttribute="top" id="mFk-sU-NSc"/>
                             <constraint firstItem="IeW-EL-Rnn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="nzh-W4-rGY"/>
-                            <constraint firstItem="Mfd-3u-YKz" firstAttribute="top" secondItem="EX0-UV-NM6" secondAttribute="bottom" constant="30" id="pob-EA-gOu"/>
                             <constraint firstItem="WiP-tL-H6O" firstAttribute="leading" secondItem="VIf-az-fxh" secondAttribute="leading" id="rIU-Ir-KhO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RjZ-7f-il2" secondAttribute="trailing" constant="60" id="rn8-VL-CWF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EX0-UV-NM6" secondAttribute="trailing" constant="60" id="t7f-bo-mF3"/>
                             <constraint firstItem="kSK-Bc-ESR" firstAttribute="leading" secondItem="WiP-tL-H6O" secondAttribute="leading" id="tWa-5n-8Yz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WiP-tL-H6O" secondAttribute="trailing" constant="60" id="ull-gQ-WKj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SignUp" id="iWF-vX-Uha"/>
