@@ -77,16 +77,40 @@
 				452F5515280F988900311B55 /* AppDelegate.swift */,
 				452F5517280F988900311B55 /* SceneDelegate.swift */,
 				45EE39F3281440DC00DFDCFA /* Extensions */,
-				45EE3A042816EB2400DFDCFA /* User.swift */,
-				452F5519280F988900311B55 /* SignUpVC.swift */,
-				45B2382528103ACD00A93AAC /* LogInVC.swift */,
-				45B2382728103B8600A93AAC /* ProfileVC.swift */,
-				452F551B280F988900311B55 /* Main.storyboard */,
+				45B2FA9E2836B0BC00604531 /* Model */,
+				45B2FAA12836B10600604531 /* View */,
+				45B2FAA02836B0EE00604531 /* Controller */,
 				452F551E280F988B00311B55 /* Assets.xcassets */,
 				452F5520280F988B00311B55 /* LaunchScreen.storyboard */,
 				452F5523280F988B00311B55 /* Info.plist */,
 			);
 			path = AuthenticationApp;
+			sourceTree = "<group>";
+		};
+		45B2FA9E2836B0BC00604531 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45EE3A042816EB2400DFDCFA /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45B2FAA02836B0EE00604531 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				452F5519280F988900311B55 /* SignUpVC.swift */,
+				45B2382528103ACD00A93AAC /* LogInVC.swift */,
+				45B2382728103B8600A93AAC /* ProfileVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45B2FAA12836B10600604531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				452F551B280F988900311B55 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		45EE39F3281440DC00DFDCFA /* Extensions */ = {

@@ -8,9 +8,6 @@
 import UIKit
 
 class SignUpVC: UIViewController {
-    //TODO: Give app an icon
-    //TODO: logout
-    
     // MARK: - Outlets
     @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
