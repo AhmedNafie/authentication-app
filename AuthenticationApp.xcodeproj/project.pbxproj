@@ -81,7 +81,6 @@
 				45B2FAA12836B10600604531 /* View */,
 				45B2FAA02836B0EE00604531 /* Controller */,
 				452F551E280F988B00311B55 /* Assets.xcassets */,
-				452F5520280F988B00311B55 /* LaunchScreen.storyboard */,
 				452F5523280F988B00311B55 /* Info.plist */,
 			);
 			path = AuthenticationApp;
@@ -108,6 +107,7 @@
 		45B2FAA12836B10600604531 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				452F5520280F988B00311B55 /* LaunchScreen.storyboard */,
 				452F551B280F988900311B55 /* Main.storyboard */,
 			);
 			path = View;
@@ -357,6 +357,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 424W3J2WNA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthenticationApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Auth App";
@@ -385,6 +386,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 424W3J2WNA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthenticationApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Auth App";
