@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,8 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-YE-Fm0">
+                                <rect key="frame" x="20" y="94" width="116" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7gq-vU-FIC" userLabel="I">
-                                <rect key="frame" x="60" y="145" width="294" height="596"/>
+                                <rect key="frame" x="60" y="173" width="294" height="596"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="MHo-h6-Yhs" userLabel="Name Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="88"/>
@@ -137,21 +143,15 @@
                                     <constraint firstItem="Kzm-9S-VG1" firstAttribute="top" secondItem="rmv-EF-tdo" secondAttribute="bottom" constant="30" id="Td1-pJ-a1D"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-YE-Fm0">
-                                <rect key="frame" x="15" y="74" width="116" height="41"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kf5-YE-Fm0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="5dd-U8-sRm"/>
-                            <constraint firstItem="7gq-vU-FIC" firstAttribute="top" secondItem="kf5-YE-Fm0" secondAttribute="bottom" constant="30" id="5sX-h8-Xtk"/>
+                            <constraint firstItem="kf5-YE-Fm0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="5dd-U8-sRm"/>
+                            <constraint firstItem="7gq-vU-FIC" firstAttribute="top" secondItem="kf5-YE-Fm0" secondAttribute="bottom" constant="38" id="5sX-h8-Xtk"/>
                             <constraint firstItem="7gq-vU-FIC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Hwk-Jg-MOo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7gq-vU-FIC" secondAttribute="trailing" constant="60" id="fxo-eA-VnE"/>
-                            <constraint firstItem="kf5-YE-Fm0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="k14-T2-zQW"/>
+                            <constraint firstItem="kf5-YE-Fm0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="k14-T2-zQW"/>
                         </constraints>
                     </view>
                 </viewController>
