@@ -24,7 +24,8 @@ class SignUpVC: UIViewController {
         }
     }
     @IBAction private func logInButtonTapped() {
-        
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
+        navigationController?.pushViewController(logInVC!, animated: true)
     }
     
     @IBAction private func genderSwitchTapped(genderSwitch: UISwitch) {
