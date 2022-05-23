@@ -23,6 +23,9 @@ class SignUpVC: UIViewController {
             goToLogInVC(with: user)
         }
     }
+    @IBAction private func logInButtonTapped() {
+        
+    }
     
     @IBAction private func genderSwitchTapped(genderSwitch: UISwitch) {
         genderLabel.text = genderSwitch.isOn ? Gender.male.rawValue : Gender.female.rawValue
