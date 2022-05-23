@@ -11,14 +11,11 @@ class LogInVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
-    
-    // MARK: - Properties
-    var user: User?
-    
+        
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
-        if let user = user, isValidCredentials() {
-            goToProfileVC(with: user)
+        if isValidCredentials() {
+            goToProfileVC()
         }
     }
 }
@@ -36,13 +33,17 @@ private extension LogInVC {
             return false
         }
         
-        guard emailTextField.text?.trimmed.lowercased() == user?.email.lowercased() else {
-
+        guard
+            let email = UserDefaults.standard.string(forKey: "AAEmail")?.lowercased(),
+            emailTextField.text?.trimmed.lowercased() == email
+        else {
             showAlert(with: "Email Is Not Found!")
             return false
         }
         
-        guard passwordTextField.text?.trimmed == user?.password else {
+        guard
+            passwordTextField.text?.trimmed == UserDefaults.standard.string(forKey: "AAPassword")
+        else {
             showAlert(with: "Wrong Password")
             return false
         }
@@ -60,11 +61,10 @@ private extension LogInVC {
         return true
     }
     
-    func goToProfileVC(with user: User) {
-        let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
-        profileVC.user = user
-        navigationController?.pushViewController(profileVC, animated: true) {
-            self.navigationController?.viewControllers = [profileVC]
+    func goToProfileVC() {
+        let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC")
+        navigationController?.pushViewController(profileVC!, animated: true) {
+            self.navigationController?.viewControllers = [profileVC!]
         }
     }
 }
