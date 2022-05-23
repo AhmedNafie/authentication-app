@@ -18,14 +18,13 @@ class SignUpVC: UIViewController {
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
-            UserDefaults.standard.set(user.email, forKey: "AAEmail")
-            UserDefaults.standard.set(user.password, forKey: "AAPassword")
-            goToLogInVC(with: user)
+            saveData(of: user)
+            goToLogInVC()
         }
     }
-    @IBAction private func logInButtonTapped() {
-        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
-        navigationController?.pushViewController(logInVC!, animated: true)
+    
+    @IBAction private func signInButtonTapped() {
+        goToLogInVC()
     }
     
     @IBAction private func genderSwitchTapped(genderSwitch: UISwitch) {
@@ -40,17 +39,17 @@ private extension SignUpVC {
             showAlert(with: "You didn't Provide Your Data!")
             return nil
         }
-
+        
         guard emailTextField.text!.isValidEmail else {
             showAlert(with: "Email Is Not Valid")
             return nil
         }
-
+        
         guard passwordTextField.text!.isValidPassword else {
             showAlert(with: "Invalid Password Format")
             return nil
         }
-
+        
         guard passwordTextField.text?.trimmed == confirmPasswordTextField.text?.trimmed else {
             showAlert(with: "Passwords Doesn't Match")
             return nil
@@ -74,9 +73,13 @@ private extension SignUpVC {
         return true
     }
     
-    func goToLogInVC(with user: User) {
-        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
-        logInVC.user = user
-        navigationController?.pushViewController(logInVC, animated: true)
+    func goToLogInVC() {
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC")
+        navigationController?.pushViewController(logInVC!, animated: true)
+    }
+    
+    func saveData(of user: User) {
+        UserDefaults.standard.set(user.email, forKey: "AAEmail")
+        UserDefaults.standard.set(user.password, forKey: "AAPassword")
     }
 }
