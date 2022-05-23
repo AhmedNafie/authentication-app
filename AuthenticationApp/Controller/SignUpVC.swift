@@ -18,6 +18,8 @@ class SignUpVC: UIViewController {
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
+            UserDefaults.standard.set(user.email, forKey: "AAEmail")
+            UserDefaults.standard.set(user.password, forKey: "AAPassword")
             goToLogInVC(with: user)
         }
     }
