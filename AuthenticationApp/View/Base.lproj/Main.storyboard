@@ -32,11 +32,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="zcF-I3-vIk" userLabel="I">
-                                <rect key="frame" x="60" y="170" width="294" height="619.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zcF-I3-vIk" userLabel="I">
+                                <rect key="frame" x="60" y="170" width="294" height="665.5"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LEQ-mk-CSC">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="101"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3eG-Ja-cOV">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="4Vw-qv-glJ"/>
+                                                    <constraint firstAttribute="width" constant="200" id="Bd9-LO-klg"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yc-rQ-2I8">
+                                                <rect key="frame" x="0.0" y="70" width="294" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Change Image"/>
+                                                <connections>
+                                                    <action selector="changeImageButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qhk-Sq-4Mc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="ajK-tp-8gw" userLabel="Name Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="88"/>
+                                        <rect key="frame" x="0.0" y="116" width="294" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeW-EL-Rnn">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
@@ -52,7 +72,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="63p-9m-Edf" userLabel="Gender Stack View">
-                                        <rect key="frame" x="0.0" y="113" width="294" height="31"/>
+                                        <rect key="frame" x="0.0" y="219" width="294" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cR-k1-YmD">
                                                 <rect key="frame" x="0.0" y="0.0" width="155.5" height="31"/>
@@ -75,7 +95,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="9Ol-xB-Z8l" userLabel="Email Stack View">
-                                        <rect key="frame" x="0.0" y="169" width="294" height="88"/>
+                                        <rect key="frame" x="0.0" y="265" width="294" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D8-l2-K90">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
@@ -90,8 +110,7 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="xhP-tm-xvp" userLabel="Password Stack View">
-                                        <rect key="frame" x="0.0" y="282" width="294" height="87"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="xhP-tm-xvp" userLabel="Password Stack View">                                        <rect key="frame" x="0.0" y="368" width="294" height="87"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIf-az-fxh">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
@@ -107,7 +126,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="QhR-b2-AxJ" userLabel="Confirm Password Stack View">
-                                        <rect key="frame" x="0.0" y="394" width="294" height="87"/>
+                                        <rect key="frame" x="0.0" y="470" width="294" height="87"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSK-Bc-ESR">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
@@ -123,14 +142,14 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-G9-WZQ" userLabel="Spacing View">
-                                        <rect key="frame" x="0.0" y="506" width="294" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="572" width="294" height="0.0"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="S9z-TV-hXO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfL-bt-lwU" userLabel="Button Containment View">
-                                        <rect key="frame" x="0.0" y="531" width="294" height="35"/>
+                                        <rect key="frame" x="0.0" y="587" width="294" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-p9-Xhf">
                                                 <rect key="frame" x="40" y="0.0" width="214" height="35"/>
@@ -155,7 +174,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VxT-Fx-zEh">
-                                        <rect key="frame" x="0.0" y="591" width="294" height="28.5"/>
+                                        <rect key="frame" x="0.0" y="637" width="294" height="28.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jub-vi-fl6">
                                                 <rect key="frame" x="0.0" y="0.0" width="195" height="28.5"/>
@@ -191,6 +210,7 @@
                         <outlet property="confirmPasswordTextField" destination="zNc-8F-XiA" id="uve-gr-o8d"/>
                         <outlet property="emailTextField" destination="RjZ-7f-il2" id="48C-Cq-i2m"/>
                         <outlet property="genderLabel" destination="TD8-Ei-o2z" id="wlq-o9-Goa"/>
+                        <outlet property="imageView" destination="3eG-Ja-cOV" id="9bX-Gh-YPQ"/>
                         <outlet property="nameTextField" destination="EX0-UV-NM6" id="qFT-2r-CQC"/>
                         <outlet property="passwordTextField" destination="WiP-tL-H6O" id="AvK-JW-OlL"/>
                     </connections>

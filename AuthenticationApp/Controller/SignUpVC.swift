@@ -14,6 +14,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var confirmPasswordTextField: UITextField!
+    @IBOutlet private var imageView: UIImageView!
     
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
@@ -29,6 +30,20 @@ class SignUpVC: UIViewController {
     
     @IBAction private func genderSwitchTapped(genderSwitch: UISwitch) {
         genderLabel.text = genderSwitch.isOn ? Gender.male.rawValue : Gender.female.rawValue
+    }
+    
+    @IBAction private func changeImageButtonTapped() {
+        showImagePickerController()
+    }
+}
+
+// MARK: - UIImagePickerController Delegate
+extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -81,5 +96,11 @@ private extension SignUpVC {
     func saveData(of user: User) {
         UserDefaults.standard.set(user.email, forKey: "AAEmail")
         UserDefaults.standard.set(user.password, forKey: "AAPassword")
+    }
+    
+    func showImagePickerController() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
     }
 }
