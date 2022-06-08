@@ -37,6 +37,16 @@ class SignUpVC: UIViewController {
     }
 }
 
+// MARK: - UIImagePickerController Delegate
+extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 // MARK: - Private Methods
 private extension SignUpVC {
     func validatedUser() -> User? {
@@ -87,20 +97,10 @@ private extension SignUpVC {
         UserDefaults.standard.set(user.email, forKey: "AAEmail")
         UserDefaults.standard.set(user.password, forKey: "AAPassword")
     }
-}
-
-// MARK: - Conforming to UIImagePickerController protocol
-extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func showImagePickerController() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageView.image = image
-        }
-        dismiss(animated: true, completion: nil)
     }
 }
