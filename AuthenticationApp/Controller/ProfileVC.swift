@@ -14,7 +14,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak private var imageView: UIImageView!
 
-    
     // MARK: - Properties
     var user: User?
     
