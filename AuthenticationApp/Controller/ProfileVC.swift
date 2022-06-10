@@ -12,6 +12,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var emailLabel: UILabel!
     @IBOutlet weak private var genderLabel: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
+
     
     // MARK: - Properties
     var user: User?
@@ -20,6 +22,7 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showUserInfo()
+        loadImage()
     }
     
     // MARK: - Actions
@@ -39,5 +42,12 @@ private extension ProfileVC {
             emailLabel.text = "Email: \(email)"
             genderLabel.text = "Gender: \(gender.rawValue)"
         }
+    }
+    
+    func loadImage() {
+         guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
+         let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
+         let image = UIImage(data: decoded)
+        imageView.image = image
     }
 }

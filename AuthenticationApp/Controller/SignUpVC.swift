@@ -21,6 +21,7 @@ class SignUpVC: UIViewController {
         if let user = validatedUser() {
             saveData(of: user)
             goToLogInVC()
+            saveImage()
         }
     }
     
@@ -103,4 +104,11 @@ private extension SignUpVC {
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    func saveImage() {
+        guard let data = imageView.image?.jpegData(compressionQuality: 0) else { return }
+        let encoded = try! PropertyListEncoder().encode(data)
+        UserDefaults.standard.set(encoded, forKey: "AAImage")
+    }
 }
+
