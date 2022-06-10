@@ -35,11 +35,9 @@ class ProfileVC: UIViewController {
 //MARK: Private methods
 private extension ProfileVC {
     func showUserInfo() {
-        if let name = user?.name,
-           let email = user?.email,
-           let gender = user?.gender {
-            nameLabel.text = "Name: \(name)"
-            emailLabel.text = "Email: \(email)"
+        nameLabel.text = UserDefaults.standard.string(forKey: "AAName")
+        emailLabel.text = UserDefaults.standard.string(forKey: "AAEmail")
+        if let gender = user?.gender {
             genderLabel.text = "Gender: \(gender.rawValue)"
         }
     }

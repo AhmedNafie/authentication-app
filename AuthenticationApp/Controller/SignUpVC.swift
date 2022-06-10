@@ -101,6 +101,7 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
+        UserDefaults.standard.set(user.name, forKey: "AAName")
         UserDefaults.standard.set(user.email, forKey: "AAEmail")
         UserDefaults.standard.set(user.password, forKey: "AAPassword")
     }
