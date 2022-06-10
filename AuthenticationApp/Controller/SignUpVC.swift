@@ -8,6 +8,12 @@
 import UIKit
 
 class SignUpVC: UIViewController {
+    // MARK: - LifeCycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     // MARK: - Outlets
     @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
