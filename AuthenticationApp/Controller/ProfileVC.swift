@@ -14,14 +14,11 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak private var imageView: UIImageView!
 
-    // MARK: - Properties
-    var user: User?
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         showUserInfo()
-        loadImage()
+        showImage()
     }
     
     // MARK: - Actions
@@ -39,10 +36,8 @@ private extension ProfileVC {
         genderLabel.text = UserDefaults.standard.string(forKey: "AAGender")
     }
     
-    func loadImage() {
-         guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
-         let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
-         let image = UIImage(data: decoded)
-        imageView.image = image
+    func showImage() {
+        guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
+        imageView.image = UIImage(data: data)
     }
 }

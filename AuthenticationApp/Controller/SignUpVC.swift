@@ -8,12 +8,6 @@
 import UIKit
 
 class SignUpVC: UIViewController {
-    // MARK: - LifeCycle Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-    }
-    
     // MARK: - Outlets
     @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak private var genderLabel: UILabel!
@@ -22,12 +16,18 @@ class SignUpVC: UIViewController {
     @IBOutlet weak private var confirmPasswordTextField: UITextField!
     @IBOutlet private var imageView: UIImageView!
     
+    // MARK: - LifeCycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
             saveData(of: user)
-            goToLogInVC()
             saveImage()
+            goToLogInVC()
         }
     }
     
@@ -114,9 +114,8 @@ private extension SignUpVC {
     }
     
     func saveImage() {
-        guard let data = imageView.image?.jpegData(compressionQuality: 0) else { return }
-        let encoded = try! PropertyListEncoder().encode(data)
-        UserDefaults.standard.set(encoded, forKey: "AAImage")
+        guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
+        UserDefaults.standard.set(data, forKey: "AAImage")
     }
 }
 

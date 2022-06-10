@@ -8,15 +8,15 @@
 import UIKit
 
 class LogInVC: UIViewController {
+    // MARK: - Outlets
+    @IBOutlet weak private var emailTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+    
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
     }
-    
-    // MARK: - Outlets
-    @IBOutlet weak private var emailTextField: UITextField!
-    @IBOutlet weak private var passwordTextField: UITextField!
         
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
