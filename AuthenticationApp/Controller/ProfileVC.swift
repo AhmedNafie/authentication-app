@@ -12,14 +12,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var emailLabel: UILabel!
     @IBOutlet weak private var genderLabel: UILabel!
-    
-    // MARK: - Properties
-    var user: User?
-    
+    @IBOutlet weak private var imageView: UIImageView!
+
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         showUserInfo()
+        showImage()
     }
     
     // MARK: - Actions
@@ -32,12 +31,13 @@ class ProfileVC: UIViewController {
 //MARK: Private methods
 private extension ProfileVC {
     func showUserInfo() {
-        if let name = user?.name,
-           let email = user?.email,
-           let gender = user?.gender {
-            nameLabel.text = "Name: \(name)"
-            emailLabel.text = "Email: \(email)"
-            genderLabel.text = "Gender: \(gender.rawValue)"
-        }
+        nameLabel.text = UserDefaults.standard.string(forKey: "AAName")
+        emailLabel.text = UserDefaults.standard.string(forKey: "AAEmail")
+        genderLabel.text = UserDefaults.standard.string(forKey: "AAGender")
+    }
+    
+    func showImage() {
+        guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
+        imageView.image = UIImage(data: data)
     }
 }

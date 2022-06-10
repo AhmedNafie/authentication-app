@@ -16,10 +16,17 @@ class SignUpVC: UIViewController {
     @IBOutlet weak private var confirmPasswordTextField: UITextField!
     @IBOutlet private var imageView: UIImageView!
     
+    // MARK: - LifeCycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
             saveData(of: user)
+            saveImage()
             goToLogInVC()
         }
     }
@@ -94,6 +101,8 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
+        UserDefaults.standard.set(user.name, forKey: "AAName")
+        UserDefaults.standard.set(genderLabel.text, forKey: "AAGender")
         UserDefaults.standard.set(user.email, forKey: "AAEmail")
         UserDefaults.standard.set(user.password, forKey: "AAPassword")
     }
@@ -103,4 +112,10 @@ private extension SignUpVC {
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    func saveImage() {
+        guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
+        UserDefaults.standard.set(data, forKey: "AAImage")
+    }
 }
+

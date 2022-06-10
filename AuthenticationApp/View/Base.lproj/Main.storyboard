@@ -110,7 +110,8 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="xhP-tm-xvp" userLabel="Password Stack View">                                        <rect key="frame" x="0.0" y="368" width="294" height="87"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="xhP-tm-xvp" userLabel="Password Stack View">
+                                        <rect key="frame" x="0.0" y="368" width="294" height="87"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIf-az-fxh">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
@@ -293,6 +294,7 @@
                     <connections>
                         <outlet property="emailLabel" destination="gef-SB-wPB" id="ObC-gH-IVm"/>
                         <outlet property="genderLabel" destination="4tJ-cP-kxc" id="AlO-EZ-Cp5"/>
+                        <outlet property="imageView" destination="gV1-gk-58x" id="NDV-lj-ALa"/>
                         <outlet property="nameLabel" destination="uuv-TM-VBW" id="QT9-hj-xuT"/>
                     </connections>
                 </viewController>
