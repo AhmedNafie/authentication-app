@@ -37,7 +37,7 @@ private extension ProfileVC {
     func showUserInfo() {
         nameLabel.text = UserDefaults.standard.string(forKey: "AAName")
         emailLabel.text = UserDefaults.standard.string(forKey: "AAEmail")
-        emailLabel.text = UserDefaults.standard.string(forKey: "AAGender")
+        genderLabel.text = UserDefaults.standard.string(forKey: "AAGender")
     }
     
     func loadImage() {
