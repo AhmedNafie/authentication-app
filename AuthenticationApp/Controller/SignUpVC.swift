@@ -20,6 +20,8 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - Actions
@@ -116,6 +118,16 @@ private extension SignUpVC {
     func saveImage() {
         guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
         UserDefaults.standard.set(data, forKey: "AAImage")
+    }
+    @objc func keyboardWillAppear(notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+//            let bottomSpace = self.view.frame.height - (genderLabel.frame.origin.y + genderLabel.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - 251 + 7
+        }
+    }
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
     }
 }
 
