@@ -240,6 +240,7 @@
                         <outlet property="imageView" destination="3eG-Ja-cOV" id="9bX-Gh-YPQ"/>
                         <outlet property="nameTextField" destination="EX0-UV-NM6" id="qFT-2r-CQC"/>
                         <outlet property="passwordTextField" destination="WiP-tL-H6O" id="AvK-JW-OlL"/>
+                        <outlet property="scrollView" destination="SpC-Fc-vEU" id="9sP-RJ-NrF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

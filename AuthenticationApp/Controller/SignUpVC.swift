@@ -15,13 +15,28 @@ class SignUpVC: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var confirmPasswordTextField: UITextField!
     @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var scrollView: UIScrollView!
+    
+    var firstResponder: UIView?
+    var isKeyboardVisible = false /// You can handle tap on view by checking if keyboard is visible.
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
+        
+        hideKeyboardWhenTappedAround()
+        /*
+         Register notifications for when keyboard appears/disappears
+         Note that we don't remove the observers if target iOS is iOS 9.0 or later
+         Apples Doc:
+         If your app targets iOS 9.0 and later or macOS 10.11 and later, you don't need to unregister an observer in its dealloc method.
+         */
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - Actions
@@ -43,6 +58,43 @@ class SignUpVC: UIViewController {
     
     @IBAction private func changeImageButtonTapped() {
         showImagePickerController()
+    }
+
+    @objc
+    fileprivate func keyboardNotification(_ notification: Notification) {
+
+        self.isKeyboardVisible.toggle()
+
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+            let keyboardFrame = keyboardValue.cgRectValue
+
+
+            if let textField = self.firstResponder {
+                let textFieldPoints = textField.convert(textField.frame.origin, to: self.view.window)
+                let textFieldRect   = textField.convert(textField.frame, to: self.view.window)
+
+                let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + textField.frame.height, right: 0)
+
+                self.scrollView.contentInset = contentInset
+                self.scrollView.scrollIndicatorInsets = contentInset
+
+                // visible part of the view, where is not covered by the keyboard.
+                var windowFrame = self.view.frame
+                windowFrame.size.height -= keyboardFrame.height
+
+                // if you don't see the firstResponder view in visible part, means the view is beneth the keyboard.
+                if !windowFrame.contains(textFieldPoints) {
+                    self.scrollView.scrollRectToVisible(textFieldRect, animated: true)
+                }
+            }
+        }
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            self.scrollView.contentInset = .zero
+            self.scrollView.scrollIndicatorInsets = .zero
+        }
     }
 }
 
@@ -119,15 +171,21 @@ private extension SignUpVC {
         guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
         UserDefaults.standard.set(data, forKey: "AAImage")
     }
-    @objc func keyboardWillAppear(notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-//            let bottomSpace = self.view.frame.height - (genderLabel.frame.origin.y + genderLabel.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - 251 + 7
-        }
-    }
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
 }
 
+// MARK: TextField Delegate
+extension SignUpVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.firstResponder = textField // We set the firstResponder variable to active textField,
+        // This then will be handled in keyboardNotification()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.firstResponder = nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
