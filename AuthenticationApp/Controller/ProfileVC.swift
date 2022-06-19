@@ -7,23 +7,23 @@
 
 import UIKit
 
-class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ProfileVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var userInformationTableView: UITableView!
 
     // MARK: - Properties
-    var userDataArray = [UserDefaults.standard.string(forKey: "AAName"),
-                         UserDefaults.standard.string(forKey: "AAEmail"),
-                         UserDefaults.standard.string(forKey: "AAGender")]
-    var tableFieldTexts = ["Name", "Email", "Gender"]
+    private let cellData = [
+        (title: "Name", detail: UserDefaults.standard.string(forKey: "AAName")),
+        (title: "Email", detail: UserDefaults.standard.string(forKey: "AAEmail")),
+        (title: "Gender", detail: UserDefaults.standard.string(forKey: "AAGender"))
+    ]
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         showImage()
-        self.userInformationTableView.delegate = self
-        self.userInformationTableView.dataSource = self
+        setupTableView()
     }
     
     // MARK: - Actions
@@ -33,24 +33,28 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
 }
 
+//MARK: UITableView DataSource 
+ extension ProfileVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        cellData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RightDetailCell", for: indexPath)
+        cell.textLabel?.text = cellData[indexPath.row].title
+        cell.detailTextLabel?.text = cellData[indexPath.row].detail
+        return cell
+    }
+}
+
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
         guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
         imageView.image = UIImage(data: data)
     }
-}
-
-//MARK: TableView protocols conformance methods
-extension ProfileVC {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userDataArray.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rightDetailCell", for: indexPath)
-        cell.textLabel?.text = tableFieldTexts[indexPath.row]
-        cell.detailTextLabel?.text = userDataArray[indexPath.row]
-        return cell
+    func setupTableView() {
+        userInformationTableView.dataSource = self
     }
 }
