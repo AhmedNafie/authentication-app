@@ -7,18 +7,23 @@
 
 import UIKit
 
-class ProfileVC: UIViewController {
+class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     // MARK: - Outlets
-    @IBOutlet weak private var nameLabel: UILabel!
-    @IBOutlet weak private var emailLabel: UILabel!
-    @IBOutlet weak private var genderLabel: UILabel!
     @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var userInformationTableView: UITableView!
+
+    // MARK: - Properties
+    var userDataArray = [UserDefaults.standard.string(forKey: "AAName"),
+                         UserDefaults.standard.string(forKey: "AAEmail"),
+                         UserDefaults.standard.string(forKey: "AAGender")]
+    var tableFieldTexts = ["Name", "Email", "Gender"]
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        showUserInfo()
         showImage()
+        self.userInformationTableView.delegate = self
+        self.userInformationTableView.dataSource = self
     }
     
     // MARK: - Actions
@@ -30,14 +35,22 @@ class ProfileVC: UIViewController {
 
 //MARK: Private methods
 private extension ProfileVC {
-    func showUserInfo() {
-        nameLabel.text = UserDefaults.standard.string(forKey: "AAName")
-        emailLabel.text = UserDefaults.standard.string(forKey: "AAEmail")
-        genderLabel.text = UserDefaults.standard.string(forKey: "AAGender")
-    }
-    
     func showImage() {
         guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
         imageView.image = UIImage(data: data)
+    }
+}
+
+//MARK: TableView protocols conformance methods
+extension ProfileVC {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userDataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rightDetailCell", for: indexPath)
+        cell.textLabel?.text = tableFieldTexts[indexPath.row]
+        cell.detailTextLabel?.text = userDataArray[indexPath.row]
+        return cell
     }
 }
