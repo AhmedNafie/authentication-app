@@ -47,6 +47,13 @@ class ProfileVC: UIViewController {
     }
 }
 
+//MARK: UITableView Delegate
+extension ProfileVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(cellData[indexPath.row].detail!)
+    }
+}
+
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
@@ -56,5 +63,6 @@ private extension ProfileVC {
     
     func setupTableView() {
         userInformationTableView.dataSource = self
+        userInformationTableView.delegate = self
     }
 }
