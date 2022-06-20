@@ -271,7 +271,7 @@
                                             <constraint firstAttribute="height" constant="200" id="Htx-Ga-cSz"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rightDetailCell" textLabel="5ow-TL-hrs" detailTextLabel="YLk-6Y-KNy" style="IBUITableViewCellStyleValue1" id="frd-4X-oF5">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RightDetailCell" textLabel="5ow-TL-hrs" detailTextLabel="YLk-6Y-KNy" style="IBUITableViewCellStyleValue1" id="frd-4X-oF5">
                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="255" height="43.666667938232422"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="frd-4X-oF5" id="k49-PZ-eUi">
