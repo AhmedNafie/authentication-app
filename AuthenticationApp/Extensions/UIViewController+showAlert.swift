@@ -18,7 +18,17 @@ extension UIViewController {
     func showAlertForEditingUserInformation(with message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .default)
+        let confirmAction = UIAlertAction.init(title: "Confirm Changes?", style: .default) {_ in
+            var alertInput = ""
+            let textField = alert.textFields![0] as UITextField
+               alertInput = textField.text ?? ""
+            print(alertInput)
+        }
         alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter New Data"
+        }
         present(alert, animated: true)
     }
 }
