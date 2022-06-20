@@ -50,7 +50,7 @@ class ProfileVC: UIViewController {
 //MARK: UITableView Delegate
 extension ProfileVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(cellData[indexPath.row].detail!)
+        showAlertForEditingUserInformation(with: "Change \(cellData[indexPath.row].title) ?" )
     }
 }
 

@@ -14,6 +14,13 @@ extension UIViewController {
         alert.addAction(action)
         present(alert, animated: true)
     }
+    
+    func showAlertForEditingUserInformation(with message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .default)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
 }
 
 
