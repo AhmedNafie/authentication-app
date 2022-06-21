@@ -21,8 +21,10 @@ extension UIViewController {
         let confirmAction = UIAlertAction.init(title: "Confirm Changes?", style: .default) {_ in
             var alertInput = ""
             let textField = alert.textFields![0] as UITextField
-               alertInput = textField.text ?? ""
-            print(alertInput)
+            if textField.text != "" {
+                alertInput = textField.text!
+             print(alertInput)
+            }
         }
         alert.addAction(cancelAction)
         alert.addAction(confirmAction)
