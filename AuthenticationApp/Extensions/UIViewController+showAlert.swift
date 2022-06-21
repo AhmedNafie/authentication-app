@@ -19,11 +19,9 @@ extension UIViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .default)
         let confirmAction = UIAlertAction.init(title: "Confirm Changes?", style: .default) {_ in
-            var alertInput = ""
             let textField = alert.textFields![0] as UITextField
             if textField.text != "" {
-                alertInput = textField.text!
-             print(alertInput)
+                NotificationCenter.default.post(name: .sendUserData, object: nil, userInfo: ["userData": textField.text!])
             }
         }
         alert.addAction(cancelAction)

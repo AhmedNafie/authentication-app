@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B045AAF3-4EB1-4172-9F61-0723A0226B68"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AuthenticationApp/Controller/LogInVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "goToProfileVC()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3DA0C487-B1FB-4F3C-9E8C-EC6875E53EC2"
+            uuid = "7ABE4C4B-96BC-4BDD-855B-9C28EF7DC896"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AuthenticationApp/Controller/LogInVC.swift"
+            filePath = "AuthenticationApp/Controller/ProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "goToProfileVC()"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "editUserData(notification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

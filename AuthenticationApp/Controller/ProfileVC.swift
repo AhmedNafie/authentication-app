@@ -13,7 +13,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var userInformationTableView: UITableView!
 
     // MARK: - Properties
-    private let cellData = [
+    private var cellData = [
         (title: "Name", detail: UserDefaults.standard.string(forKey: "AAName")),
         (title: "Email", detail: UserDefaults.standard.string(forKey: "AAEmail")),
         (title: "Gender", detail: UserDefaults.standard.string(forKey: "AAGender"))
@@ -24,6 +24,7 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         showImage()
         setupTableView()
+        createTableViewChangersObservers()
     }
     
     // MARK: - Actions
@@ -64,5 +65,19 @@ private extension ProfileVC {
     func setupTableView() {
         userInformationTableView.dataSource = self
         userInformationTableView.delegate = self
+    }
+    
+    func createTableViewChangersObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(editUserData(notification:)), name: .sendUserData, object: nil)
+    }
+    
+    @objc func editUserData(notification: Notification) {
+        if let userData = notification.userInfo?["userData"] as? String {
+            cellData[0].detail! = userData
+            print("notification arrived")
+            print(cellData[0].detail!)
+            self.userInformationTableView.reloadData()
+
+        }
     }
 }
