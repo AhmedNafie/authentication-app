@@ -13,7 +13,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var userInformationTableView: UITableView!
 
     // MARK: - Properties
-    private let cellData = [
+    private var cellData = [
         (title: "Name", detail: UserDefaults.standard.string(forKey: "AAName")),
         (title: "Email", detail: UserDefaults.standard.string(forKey: "AAEmail")),
         (title: "Gender", detail: UserDefaults.standard.string(forKey: "AAGender"))
@@ -47,6 +47,16 @@ class ProfileVC: UIViewController {
     }
 }
 
+//MARK: UITableView Delegate
+extension ProfileVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellTitle = cellData[indexPath.row].title
+        if cellTitle != "Gender" {
+            showAlertForEditingUserInformation(with: cellTitle.lowercased())
+        }
+    }
+}
+
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
@@ -56,5 +66,42 @@ private extension ProfileVC {
     
     func setupTableView() {
         userInformationTableView.dataSource = self
+        userInformationTableView.delegate = self
+    }
+    
+    func showAlertForEditingUserInformation(with title: String) {
+        let alert = UIAlertController(title: "Change \(title)", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter new \(title)"
+        }
+        
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel)
+        let confirmAction = UIAlertAction.init(title: "Confirm", style: .default) { _ in
+            let textField = alert.textFields![0]
+            let isValid = (title == "name") ? textField.text!.isNotEmpty : textField.text!.isValidEmail
+            if isValid {
+                let row = self.userInformationTableView.indexPathForSelectedRow!.row
+                let userData = textField.text!
+                self.editUserData(at: row, with: userData)
+                self.updateTableView(at: row, with: userData)
+            } else {
+                self.showAlert(with: "\(title.capitalized) is not valid")
+            }
+        }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func editUserData(at row: Int, with userData: String) {
+        let key = (row == 0) ? "AAName" : "AAEmail"
+        UserDefaults.standard.set(userData, forKey: key)
+    }
+    
+    func updateTableView(at row: Int, with userData: String) {
+        cellData[row].detail = userData
+        userInformationTableView.reloadData()
     }
 }
