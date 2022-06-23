@@ -51,7 +51,11 @@ class ProfileVC: UIViewController {
 //MARK: UITableView Delegate
 extension ProfileVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlertForEditingUserInformation(with: "Change \(cellData[indexPath.row].title) ?" )
+        let index = userInformationTableView.indexPathForSelectedRow
+        // wanna remove the number
+        if index != [0,2] {
+            showAlertForEditingUserInformation(with: "Change \(cellData[indexPath.row].title) ?" )
+        }
     }
 }
 
@@ -73,11 +77,19 @@ private extension ProfileVC {
     
     @objc func editUserData(notification: Notification) {
         if let userData = notification.userInfo?["userData"] as? String {
-            cellData[0].detail! = userData
-            print("notification arrived")
-            print(cellData[0].detail!)
-            self.userInformationTableView.reloadData()
-
+            let index = userInformationTableView.indexPathForSelectedRow
+            // wanna remove the numbers
+            if index == [0,0]  {
+                UserDefaults.standard.set(userData, forKey: "AAName")
+                cellData[0].detail = UserDefaults.standard.string(forKey: "AAName")
+                print(cellData[0].detail!)
+                self.userInformationTableView.reloadData()
+            } else {
+                UserDefaults.standard.set(userData, forKey: "AAEmail")
+                cellData[1].detail = UserDefaults.standard.string(forKey: "AAEmail")
+                print(cellData[1].detail!)
+                self.userInformationTableView.reloadData()
+            }
         }
     }
 }
