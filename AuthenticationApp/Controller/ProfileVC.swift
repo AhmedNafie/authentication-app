@@ -67,12 +67,6 @@ private extension ProfileVC {
     func setupTableView() {
         userInformationTableView.dataSource = self
         userInformationTableView.delegate = self
-        userInformationTableView.delegate = self
-        userInformationTableView.delegate = self
-        userInformationTableView.delegate = self
-        userInformationTableView.delegate = self
-        userInformationTableView.delegate = self
-        userInformationTableView.delegate = self
     }
     
     func showAlertForEditingUserInformation(with title: String) {
