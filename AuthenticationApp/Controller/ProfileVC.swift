@@ -24,7 +24,6 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         showImage()
         setupTableView()
-        createTableViewChangersObservers()
     }
     
     // MARK: - Actions
@@ -51,10 +50,9 @@ class ProfileVC: UIViewController {
 //MARK: UITableView Delegate
 extension ProfileVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = userInformationTableView.indexPathForSelectedRow
-        // wanna remove the number
-        if index != [0,2] {
-            showAlertForEditingUserInformation(with: "Change \(cellData[indexPath.row].title) ?" )
+        let cellTitle = cellData[indexPath.row].title
+        if cellTitle != "Gender" {
+            showAlertForEditingUserInformation(with: cellTitle.lowercased())
         }
     }
 }
@@ -69,27 +67,47 @@ private extension ProfileVC {
     func setupTableView() {
         userInformationTableView.dataSource = self
         userInformationTableView.delegate = self
+        userInformationTableView.delegate = self
+        userInformationTableView.delegate = self
+        userInformationTableView.delegate = self
+        userInformationTableView.delegate = self
+        userInformationTableView.delegate = self
+        userInformationTableView.delegate = self
     }
     
-    func createTableViewChangersObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(editUserData(notification:)), name: .sendUserData, object: nil)
-    }
-    
-    @objc func editUserData(notification: Notification) {
-        if let userData = notification.userInfo?["userData"] as? String {
-            let index = userInformationTableView.indexPathForSelectedRow
-            // wanna remove the numbers
-            if index == [0,0]  {
-                UserDefaults.standard.set(userData, forKey: "AAName")
-                cellData[0].detail = UserDefaults.standard.string(forKey: "AAName")
-                print(cellData[0].detail!)
-                self.userInformationTableView.reloadData()
+    func showAlertForEditingUserInformation(with title: String) {
+        let alert = UIAlertController(title: "Change \(title)", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter new \(title)"
+        }
+        
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel)
+        let confirmAction = UIAlertAction.init(title: "Confirm", style: .default) { _ in
+            let textField = alert.textFields![0]
+            let isValid = (title == "name") ? textField.text!.isNotEmpty : textField.text!.isValidEmail
+            if isValid {
+                let row = self.userInformationTableView.indexPathForSelectedRow!.row
+                let userData = textField.text!
+                self.editUserData(at: row, with: userData)
+                self.updateTableView(at: row, with: userData)
             } else {
-                UserDefaults.standard.set(userData, forKey: "AAEmail")
-                cellData[1].detail = UserDefaults.standard.string(forKey: "AAEmail")
-                print(cellData[1].detail!)
-                self.userInformationTableView.reloadData()
+                self.showAlert(with: "\(title.capitalized) is not valid")
             }
         }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func editUserData(at row: Int, with userData: String) {
+        let key = (row == 0) ? "AAName" : "AAEmail"
+        UserDefaults.standard.set(userData, forKey: key)
+    }
+    
+    func updateTableView(at row: Int, with userData: String) {
+        cellData[row].detail = userData
+        userInformationTableView.reloadData()
     }
 }

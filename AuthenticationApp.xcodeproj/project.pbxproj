@@ -13,7 +13,6 @@
 		452F551D280F988900311B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F551B280F988900311B55 /* Main.storyboard */; };
 		452F551F280F988B00311B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452F551E280F988B00311B55 /* Assets.xcassets */; };
 		452F5522280F988B00311B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F5520280F988B00311B55 /* LaunchScreen.storyboard */; };
-		453F1F582861E2FF002697AD /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F1F572861E2FF002697AD /* Notification+Name.swift */; };
 		45A0E6A2285344FB0037A320 /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0E6A1285344FB0037A320 /* UIViewController+dismissKeyboard.swift */; };
 		45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382528103ACD00A93AAC /* LogInVC.swift */; };
 		45B2382828103B8600A93AAC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382728103B8600A93AAC /* ProfileVC.swift */; };
@@ -35,7 +34,6 @@
 		452F551E280F988B00311B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452F5521280F988B00311B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452F5523280F988B00311B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		453F1F572861E2FF002697AD /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		45A0E6A1285344FB0037A320 /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		45B2382528103ACD00A93AAC /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		45B2382728103B8600A93AAC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				45EE39FE28159E1700DFDCFA /* String+IsValidPassword.swift */,
 				45EE3A022815ADD000DFDCFA /* String+isValidEmail.swift */,
 				45EE3A062818281D00DFDCFA /* UIViewController+showAlert.swift */,
-				453F1F572861E2FF002697AD /* Notification+Name.swift */,
 				45A0E6A1285344FB0037A320 /* UIViewController+dismissKeyboard.swift */,
 				45EE3A082819830200DFDCFA /* UINavigationController+completionHandler.swift */,
 			);
@@ -214,7 +211,6 @@
 				45EE39F52814413700DFDCFA /* String+Trimmed.swift in Sources */,
 				45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */,
 				45EE3A032815ADD000DFDCFA /* String+isValidEmail.swift in Sources */,
-				453F1F582861E2FF002697AD /* Notification+Name.swift in Sources */,
 				452F5518280F988900311B55 /* SceneDelegate.swift in Sources */,
 				45EE39F92814462800DFDCFA /* String+IsNotEmpty.swift in Sources */,
 			);

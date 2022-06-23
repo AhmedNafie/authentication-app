@@ -14,23 +14,6 @@ extension UIViewController {
         alert.addAction(action)
         present(alert, animated: true)
     }
-    
-    func showAlertForEditingUserInformation(with message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: .default)
-        let confirmAction = UIAlertAction.init(title: "Confirm Changes?", style: .default) {_ in
-            let textField = alert.textFields![0] as UITextField
-            if textField.text != "" {
-                NotificationCenter.default.post(name: .sendUserData, object: nil, userInfo: ["userData": textField.text!])
-            }
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(confirmAction)
-        alert.addTextField { (textField) in
-            textField.placeholder = "Enter New Data"
-        }
-        present(alert, animated: true)
-    }
 }
 
 
