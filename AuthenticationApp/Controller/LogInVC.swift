@@ -11,17 +11,31 @@ class LogInVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var checkBoxButton: UIButton!
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
     }
-        
+    
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
         if isValidCredentials() {
             goToProfileVC()
+        }
+    }
+    
+    @IBAction func checkBoxButtonTapped() {
+        var isLoggingInKeepingNeeded: Bool
+        if checkBoxButton.currentImage == UIImage(named: "Unchecked-Checkbox") as UIImage? {
+            setCheckBoxImage(imageName: "Checked-Checkox")
+            isLoggingInKeepingNeeded = true
+            UserDefaults.standard.set(isLoggingInKeepingNeeded, forKey: "AACheckBoxState")
+        } else {
+            setCheckBoxImage(imageName: "Unchecked-Checkbox")
+            isLoggingInKeepingNeeded = false
+            UserDefaults.standard.set(isLoggingInKeepingNeeded, forKey: "AACheckBoxState")
         }
     }
 }
@@ -72,6 +86,11 @@ private extension LogInVC {
         navigationController?.pushViewController(profileVC!, animated: true) {
             self.navigationController?.viewControllers = [profileVC!]
         }
+    }
+    
+    func setCheckBoxImage(imageName: String) {
+        let image = UIImage(named: imageName) as UIImage?
+        checkBoxButton.setImage(image, for: .normal)
     }
 }
 
