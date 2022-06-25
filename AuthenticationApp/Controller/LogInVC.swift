@@ -27,15 +27,17 @@ class LogInVC: UIViewController {
     }
     
     @IBAction func checkBoxButtonTapped() {
-        var isLoggingInKeepingNeeded: Bool
+        var isLoggingInKeepingNeeded: Bool?
         if checkBoxButton.currentImage == UIImage(named: "Unchecked-Checkbox") as UIImage? {
             setCheckBoxImage(imageName: "Checked-Checkox")
             isLoggingInKeepingNeeded = true
             UserDefaults.standard.set(isLoggingInKeepingNeeded, forKey: "AACheckBoxState")
+            print("\(UserDefaults.standard.string(forKey: "AACheckBoxState"))")
         } else {
             setCheckBoxImage(imageName: "Unchecked-Checkbox")
-            isLoggingInKeepingNeeded = false
+            isLoggingInKeepingNeeded = nil
             UserDefaults.standard.set(isLoggingInKeepingNeeded, forKey: "AACheckBoxState")
+            print("\(UserDefaults.standard.string(forKey: "AACheckBoxState"))")
         }
     }
 }
