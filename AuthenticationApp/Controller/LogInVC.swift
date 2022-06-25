@@ -11,7 +11,6 @@ class LogInVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
-    @IBOutlet weak private var checkBoxButton: UIButton!
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
@@ -22,22 +21,8 @@ class LogInVC: UIViewController {
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
         if isValidCredentials() {
+            handleLoggingIn()
             goToProfileVC()
-        }
-    }
-    
-    @IBAction func checkBoxButtonTapped() {
-        var isLoggingInKeepingNeeded: Bool?
-        if checkBoxButton.currentImage == UIImage(named: "Unchecked-Checkbox") as UIImage? {
-            setCheckBoxImage(imageName: "Checked-Checkox")
-            isLoggingInKeepingNeeded = true
-            UserDefaults.standard.set(isLoggingInKeepingNeeded, forKey: "AACheckBoxState")
-            print("\(UserDefaults.standard.string(forKey: "AACheckBoxState"))")
-        } else {
-            setCheckBoxImage(imageName: "Unchecked-Checkbox")
-            isLoggingInKeepingNeeded = nil
-            UserDefaults.standard.set(isLoggingInKeepingNeeded, forKey: "AACheckBoxState")
-            print("\(UserDefaults.standard.string(forKey: "AACheckBoxState"))")
         }
     }
 }
@@ -90,9 +75,10 @@ private extension LogInVC {
         }
     }
     
-    func setCheckBoxImage(imageName: String) {
-        let image = UIImage(named: imageName) as UIImage?
-        checkBoxButton.setImage(image, for: .normal)
+    func handleLoggingIn() {
+        var isLoggedIn: Bool?
+        isLoggedIn = true
+        UserDefaults.standard.set(isLoggedIn, forKey: "AAlogin")
     }
 }
 

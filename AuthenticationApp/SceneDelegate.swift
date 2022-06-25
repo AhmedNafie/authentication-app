@@ -11,10 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let userLoggingInPrefrence = UserDefaults.standard.string(forKey: "AACheckBoxState")
+    let userLoggingInPrefrence = UserDefaults.standard.string(forKey: "AAlogin")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if UserDefaults.standard.string(forKey: "AACheckBoxState") != nil {
+        if UserDefaults.standard.string(forKey: "AAlogin") != nil {
             guard let windowScene = scene as? UIWindowScene else { return }
               let vc = storyboard.instantiateViewController (withIdentifier: "ProfileVC") as! ProfileVC
               window = UIWindow(windowScene: windowScene)
