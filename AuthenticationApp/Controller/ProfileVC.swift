@@ -28,8 +28,7 @@ class ProfileVC: UIViewController {
     
     // MARK: - Actions
     @IBAction func logoutButtonTapped() {
-        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
-        navigationController?.viewControllers = [signUpVC!]
+        handleLogout()
     }
 }
 
@@ -103,5 +102,19 @@ private extension ProfileVC {
     func updateTableView(at row: Int, with userData: String) {
         cellData[row].detail = userData
         userInformationTableView.reloadData()
+    }
+    
+    func handleLogout() {
+        disableIsLoggedIn()
+        goToSignUpVC()
+    }
+    
+    func disableIsLoggedIn() {
+        UserDefaults.standard.set(false, forKey: "AAlogin")
+    }
+    
+    func goToSignUpVC() {
+        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
+        navigationController?.viewControllers = [signUpVC!]
     }
 }

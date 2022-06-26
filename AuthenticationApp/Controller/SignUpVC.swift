@@ -29,12 +29,6 @@ class SignUpVC: UIViewController {
         confirmPasswordTextField.delegate = self
         
         hideKeyboardWhenTappedAround()
-        /*
-         Register notifications for when keyboard appears/disappears
-         Note that we don't remove the observers if target iOS is iOS 9.0 or later
-         Apples Doc:
-         If your app targets iOS 9.0 and later or macOS 10.11 and later, you don't need to unregister an observer in its dealloc method.
-         */
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
