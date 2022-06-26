@@ -15,19 +15,24 @@ class LogInVC: UIViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
     }
-        
+    
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
-        if isValidCredentials() {
-            goToProfileVC()
-        }
+        handleLogIn()
     }
 }
 
 // MARK: - Private Methods
 private extension LogInVC {
+    func handleLogIn() {
+        if isValidCredentials() {
+            enableIsLoggedIn()
+            goToProfileVC()
+        }
+    }
+    
     func isValidCredentials() -> Bool {
         guard isDataProvided() else {
             showAlert(with: "You didn't Provide Your Data!")
@@ -65,6 +70,10 @@ private extension LogInVC {
             return false
         }
         return true
+    }
+    
+    func enableIsLoggedIn() {
+        UserDefaults.standard.set(true, forKey: "AAlogin")
     }
     
     func goToProfileVC() {
