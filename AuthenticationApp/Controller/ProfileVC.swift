@@ -14,9 +14,9 @@ class ProfileVC: UIViewController {
 
     // MARK: - Properties
     private var cellData = [
-        (title: "Name", detail: UserDefaults.standard.string(forKey: "AAName")),
-        (title: "Email", detail: UserDefaults.standard.string(forKey: "AAEmail")),
-        (title: "Gender", detail: UserDefaults.standard.string(forKey: "AAGender"))
+        (title: "Name", detail: DataPersistenceManager.shared.name),
+        (title: "Email", detail: DataPersistenceManager.shared.email),
+        (title: "Gender", detail: DataPersistenceManager.shared.gender)
     ]
 
     // MARK: - Lifecycle Methods
