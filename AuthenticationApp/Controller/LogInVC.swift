@@ -45,15 +45,14 @@ private extension LogInVC {
         }
         
         guard
-            let email = UserDefaults.standard.string(forKey: "AAEmail")?.lowercased(),
-            emailTextField.text?.trimmed.lowercased() == email
+            DataPersistenceManager.shared.email.lowercased() == emailTextField.text?.trimmed.lowercased()
         else {
             showAlert(with: "Email Is Not Found!")
             return false
         }
         
         guard
-            passwordTextField.text?.trimmed == UserDefaults.standard.string(forKey: "AAPassword")
+            passwordTextField.text?.trimmed == DataPersistenceManager.shared.password
         else {
             showAlert(with: "Wrong Password")
             return false
