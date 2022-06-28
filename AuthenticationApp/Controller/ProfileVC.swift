@@ -59,8 +59,8 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
-        guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
-        imageView.image = UIImage(data: data)
+         let data = DataPersistenceManager.shared.image
+            imageView.image = UIImage(data: data)
     }
     
     func setupTableView() {
@@ -95,8 +95,11 @@ private extension ProfileVC {
     }
     
     func editUserData(at row: Int, with userData: String) {
-        let key = (row == 0) ? "AAName" : "AAEmail"
-        UserDefaults.standard.set(userData, forKey: key)
+        if row == 0 {
+            DataPersistenceManager.shared.name = userData
+        } else {
+            DataPersistenceManager.shared.email = userData
+        }
     }
     
     func updateTableView(at row: Int, with userData: String) {
@@ -110,8 +113,7 @@ private extension ProfileVC {
     }
     
     func disableIsLoggedIn() {
-        UserDefaults.standard.set(false, forKey: "AAlogin")
-    }
+        DataPersistenceManager.shared.login = false    }
     
     func goToSignUpVC() {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")

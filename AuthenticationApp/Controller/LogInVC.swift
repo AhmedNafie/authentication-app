@@ -73,7 +73,7 @@ private extension LogInVC {
     }
     
     func enableIsLoggedIn() {
-        UserDefaults.standard.set(true, forKey: "AAlogin")
+        DataPersistenceManager.shared.login = true
     }
     
     func goToProfileVC() {

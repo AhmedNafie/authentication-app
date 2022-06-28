@@ -163,7 +163,7 @@ private extension SignUpVC {
     
     func saveImage() {
         guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
-        UserDefaults.standard.set(data, forKey: "AAImage")
+        DataPersistenceManager.shared.image = data
     }
 }
 

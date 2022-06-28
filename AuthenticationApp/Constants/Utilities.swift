@@ -18,7 +18,9 @@ class DataPersistenceManager {
         static let image = "AAImage"
         static let login = "AAlogin"
     }
+    
     private init() {}
+    
     static let shared = DataPersistenceManager()
     
     // MARK: - Properties
@@ -58,18 +60,18 @@ class DataPersistenceManager {
         }
     }
     
-    var image: Any {
+    var image: Data {
         get {
-            UserDefaults.standard.string(forKey: UserDefaultsKeys.image) ?? ""
+            UserDefaults.standard.data(forKey: UserDefaultsKeys.image) ?? Data()
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.image)
         }
     }
     
-    var login: String {
+    var login: Bool {
         get {
-            UserDefaults.standard.string(forKey: UserDefaultsKeys.login) ?? ""
+            UserDefaults.standard.bool(forKey: UserDefaultsKeys.login)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.login)
