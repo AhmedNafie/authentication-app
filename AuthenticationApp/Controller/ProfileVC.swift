@@ -59,8 +59,8 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
-         let data = DataPersistenceManager.shared.image
-            imageView.image = UIImage(data: data)
+        let imageData = DataPersistenceManager.shared.imageData
+        imageView.image = UIImage(data: imageData)
     }
     
     func setupTableView() {
@@ -113,7 +113,8 @@ private extension ProfileVC {
     }
     
     func disableIsLoggedIn() {
-        DataPersistenceManager.shared.login = false    }
+        DataPersistenceManager.shared.isLoggedIn = false
+    }
     
     func goToSignUpVC() {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")

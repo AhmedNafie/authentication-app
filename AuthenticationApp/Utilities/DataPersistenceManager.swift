@@ -10,18 +10,18 @@ import UIKit
 
 class DataPersistenceManager {
     // MARK: - Singleton
-    enum UserDefaultsKeys {
+    static let shared = DataPersistenceManager()
+    
+    private init() {}
+    
+    private enum UserDefaultsKeys {
         static let name = "AAName"
         static let email = "AAEmail"
         static let gender = "AAGender"
         static let password = "AAPassword"
-        static let image = "AAImage"
-        static let login = "AAlogin"
+        static let imageData = "AAImageData"
+        static let isLoggedIn = "AAisLoggedIn"
     }
-    
-    private init() {}
-    
-    static let shared = DataPersistenceManager()
     
     // MARK: - Properties
     var name: String {
@@ -60,21 +60,21 @@ class DataPersistenceManager {
         }
     }
     
-    var image: Data {
+    var imageData: Data {
         get {
-            UserDefaults.standard.data(forKey: UserDefaultsKeys.image) ?? Data()
+            UserDefaults.standard.data(forKey: UserDefaultsKeys.imageData) ?? Data()
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.image)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.imageData)
         }
     }
     
-    var login: Bool {
+    var isLoggedIn: Bool {
         get {
-            UserDefaults.standard.bool(forKey: UserDefaultsKeys.login)
+            UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.login)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.isLoggedIn)
         }
     }
 }

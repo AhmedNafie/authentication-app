@@ -45,7 +45,7 @@ private extension LogInVC {
         }
         
         guard
-            DataPersistenceManager.shared.email.lowercased() == emailTextField.text?.trimmed.lowercased()
+            emailTextField.text?.trimmed.lowercased() == DataPersistenceManager.shared.email.lowercased()
         else {
             showAlert(with: "Email Is Not Found!")
             return false
@@ -72,7 +72,7 @@ private extension LogInVC {
     }
     
     func enableIsLoggedIn() {
-        DataPersistenceManager.shared.login = true
+        DataPersistenceManager.shared.isLoggedIn = true
     }
     
     func goToProfileVC() {

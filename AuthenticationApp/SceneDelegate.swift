@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        if DataPersistenceManager.shared.login {
+        if DataPersistenceManager.shared.isLoggedIn {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let profileVC = storyboard.instantiateViewController (withIdentifier: "ProfileVC")
             let navigationController = UINavigationController(rootViewController: profileVC)
