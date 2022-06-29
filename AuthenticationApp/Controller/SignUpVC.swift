@@ -149,10 +149,10 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
-        UserDefaults.standard.set(user.name, forKey: "AAName")
-        UserDefaults.standard.set(genderLabel.text, forKey: "AAGender")
-        UserDefaults.standard.set(user.email, forKey: "AAEmail")
-        UserDefaults.standard.set(user.password, forKey: "AAPassword")
+        DataPersistenceManager.shared.name = user.name
+        DataPersistenceManager.shared.gender = user.gender.rawValue
+        DataPersistenceManager.shared.email = user.email
+        DataPersistenceManager.shared.password = user.password
     }
     
     func showImagePickerController() {
@@ -163,7 +163,7 @@ private extension SignUpVC {
     
     func saveImage() {
         guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
-        UserDefaults.standard.set(data, forKey: "AAImage")
+        DataPersistenceManager.shared.imageData = data
     }
 }
 

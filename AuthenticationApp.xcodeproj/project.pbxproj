@@ -13,6 +13,7 @@
 		452F551D280F988900311B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F551B280F988900311B55 /* Main.storyboard */; };
 		452F551F280F988B00311B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452F551E280F988B00311B55 /* Assets.xcassets */; };
 		452F5522280F988B00311B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F5520280F988B00311B55 /* LaunchScreen.storyboard */; };
+		453F1F5C286B7D9A002697AD /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F1F5B286B7D9A002697AD /* DataPersistenceManager.swift */; };
 		45A0E6A2285344FB0037A320 /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0E6A1285344FB0037A320 /* UIViewController+dismissKeyboard.swift */; };
 		45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382528103ACD00A93AAC /* LogInVC.swift */; };
 		45B2382828103B8600A93AAC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382728103B8600A93AAC /* ProfileVC.swift */; };
@@ -34,6 +35,7 @@
 		452F551E280F988B00311B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452F5521280F988B00311B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452F5523280F988B00311B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		453F1F5B286B7D9A002697AD /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		45A0E6A1285344FB0037A320 /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		45B2382528103ACD00A93AAC /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		45B2382728103B8600A93AAC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				452F5515280F988900311B55 /* AppDelegate.swift */,
 				452F5517280F988900311B55 /* SceneDelegate.swift */,
+				453F1F5A286B7D4D002697AD /* Utilities */,
 				45EE39F3281440DC00DFDCFA /* Extensions */,
 				45B2FA9E2836B0BC00604531 /* Model */,
 				45B2FAA12836B10600604531 /* View */,
@@ -86,6 +89,14 @@
 				452F5523280F988B00311B55 /* Info.plist */,
 			);
 			path = AuthenticationApp;
+			sourceTree = "<group>";
+		};
+		453F1F5A286B7D4D002697AD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				453F1F5B286B7D9A002697AD /* DataPersistenceManager.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		45B2FA9E2836B0BC00604531 /* Model */ = {
@@ -202,6 +213,7 @@
 			files = (
 				45EE3A052816EB2400DFDCFA /* User.swift in Sources */,
 				452F551A280F988900311B55 /* SignUpVC.swift in Sources */,
+				453F1F5C286B7D9A002697AD /* DataPersistenceManager.swift in Sources */,
 				45EE3A092819830200DFDCFA /* UINavigationController+completionHandler.swift in Sources */,
 				45A0E6A2285344FB0037A320 /* UIViewController+dismissKeyboard.swift in Sources */,
 				45EE3A072818281D00DFDCFA /* UIViewController+showAlert.swift in Sources */,

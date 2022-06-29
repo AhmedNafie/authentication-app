@@ -14,9 +14,9 @@ class ProfileVC: UIViewController {
 
     // MARK: - Properties
     private var cellData = [
-        (title: "Name", detail: UserDefaults.standard.string(forKey: "AAName")),
-        (title: "Email", detail: UserDefaults.standard.string(forKey: "AAEmail")),
-        (title: "Gender", detail: UserDefaults.standard.string(forKey: "AAGender"))
+        (title: "Name", detail: DataPersistenceManager.shared.name),
+        (title: "Email", detail: DataPersistenceManager.shared.email),
+        (title: "Gender", detail: DataPersistenceManager.shared.gender)
     ]
 
     // MARK: - Lifecycle Methods
@@ -59,8 +59,8 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
-        guard let data = UserDefaults.standard.data(forKey: "AAImage") else { return }
-        imageView.image = UIImage(data: data)
+        let imageData = DataPersistenceManager.shared.imageData
+        imageView.image = UIImage(data: imageData)
     }
     
     func setupTableView() {
@@ -95,8 +95,11 @@ private extension ProfileVC {
     }
     
     func editUserData(at row: Int, with userData: String) {
-        let key = (row == 0) ? "AAName" : "AAEmail"
-        UserDefaults.standard.set(userData, forKey: key)
+        if row == 0 {
+            DataPersistenceManager.shared.name = userData
+        } else {
+            DataPersistenceManager.shared.email = userData
+        }
     }
     
     func updateTableView(at row: Int, with userData: String) {
@@ -110,7 +113,7 @@ private extension ProfileVC {
     }
     
     func disableIsLoggedIn() {
-        UserDefaults.standard.set(false, forKey: "AAlogin")
+        DataPersistenceManager.shared.isLoggedIn = false
     }
     
     func goToSignUpVC() {
