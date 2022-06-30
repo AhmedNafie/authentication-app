@@ -15,6 +15,7 @@ class DataPersistenceManager {
     private init() {}
     
     private enum UserDefaultsKeys {
+        static let user = "AAUser"
         static let name = "AAName"
         static let email = "AAEmail"
         static let gender = "AAGender"
@@ -75,6 +76,15 @@ class DataPersistenceManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.isLoggedIn)
+        }
+    }
+    
+    var user: Data {
+        get {
+            UserDefaults.standard.data(forKey: UserDefaultsKeys.user) ?? Data()
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.user)
         }
     }
 }

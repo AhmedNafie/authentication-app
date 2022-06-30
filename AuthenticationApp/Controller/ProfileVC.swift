@@ -29,6 +29,7 @@ class ProfileVC: UIViewController {
     // MARK: - Actions
     @IBAction func logoutButtonTapped() {
         handleLogout()
+        decode()
     }
 }
 
@@ -119,5 +120,15 @@ private extension ProfileVC {
     func goToSignUpVC() {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
         navigationController?.viewControllers = [signUpVC!]
+    }
+    
+    func decode() {
+        if let savedUser = DataPersistenceManager.shared.user as? Data {
+            let decoder = JSONDecoder()
+            if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
+                print(loadedUser.name)
+                print(loadedUser)
+            }
+        }
     }
 }

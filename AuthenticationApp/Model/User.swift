@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct User {
+struct User: Codable {
     let name: String
     let gender: Gender
     let email: String
     let password: String
 }
 
-enum Gender: String {
+enum Gender: String, Codable {
     case male = "Male"
     case female = "Female"
 }

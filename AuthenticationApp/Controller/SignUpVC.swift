@@ -149,6 +149,10 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
+        let encoder = JSONEncoder()
+        if let encodedUser = try? encoder.encode(user) {
+            DataPersistenceManager.shared.user = encodedUser
+        }
         DataPersistenceManager.shared.name = user.name
         DataPersistenceManager.shared.gender = user.gender.rawValue
         DataPersistenceManager.shared.email = user.email
