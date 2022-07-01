@@ -45,14 +45,14 @@ private extension LogInVC {
         }
         
         guard
-            emailTextField.text?.trimmed.lowercased() == DataPersistenceManager.shared.email.lowercased()
+            emailTextField.text?.trimmed.lowercased() == DataPersistenceManager.shared.user?.email.lowercased()
         else {
             showAlert(with: "Email Is Not Found!")
             return false
         }
         
         guard
-            passwordTextField.text?.trimmed == DataPersistenceManager.shared.password
+            passwordTextField.text?.trimmed == DataPersistenceManager.shared.user?.password
         else {
             showAlert(with: "Wrong Password")
             return false
