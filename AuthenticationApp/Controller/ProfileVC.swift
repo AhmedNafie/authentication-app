@@ -14,9 +14,9 @@ class ProfileVC: UIViewController {
 
     // MARK: - Properties
     private var cellData = [
-        (title: "Name", detail: DataPersistenceManager.shared.name),
-        (title: "Email", detail: DataPersistenceManager.shared.email),
-        (title: "Gender", detail: DataPersistenceManager.shared.gender)
+        (title: "Name", detail: DataPersistenceManager.shared.user?.name ?? ""),
+        (title: "Email", detail: DataPersistenceManager.shared.user?.email ?? ""),
+        (title: "Gender", detail: DataPersistenceManager.shared.user?.gender.rawValue ?? "")
     ]
 
     // MARK: - Lifecycle Methods
@@ -24,12 +24,12 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         showImage()
         setupTableView()
+        print(DataPersistenceManager.shared.user)
     }
     
     // MARK: - Actions
     @IBAction func logoutButtonTapped() {
         handleLogout()
-        decode()
     }
 }
 
@@ -60,8 +60,7 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
-        let imageData = DataPersistenceManager.shared.imageData
-        imageView.image = UIImage(data: imageData)
+        imageView.image = UIImage(contentsOfFile: DataPersistenceManager.shared.user?.imagePath ?? "")
     }
     
     func setupTableView() {
@@ -97,9 +96,9 @@ private extension ProfileVC {
     
     func editUserData(at row: Int, with userData: String) {
         if row == 0 {
-            DataPersistenceManager.shared.name = userData
+            DataPersistenceManager.shared.user?.name = userData
         } else {
-            DataPersistenceManager.shared.email = userData
+            DataPersistenceManager.shared.user?.email = userData
         }
     }
     
@@ -120,15 +119,5 @@ private extension ProfileVC {
     func goToSignUpVC() {
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
         navigationController?.viewControllers = [signUpVC!]
-    }
-    
-    func decode() {
-        if let savedUser = DataPersistenceManager.shared.user as? Data {
-            let decoder = JSONDecoder()
-            if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
-                print(loadedUser.name)
-                print(loadedUser)
-            }
-        }
     }
 }

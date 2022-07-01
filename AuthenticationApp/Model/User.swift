@@ -8,10 +8,11 @@
 import Foundation
 
 struct User: Codable {
-    let name: String
-    let gender: Gender
-    let email: String
-    let password: String
+    var name: String
+    var gender: Gender
+    var email: String
+    var password: String
+    var imagePath: String
 }
 
 enum Gender: String, Codable {

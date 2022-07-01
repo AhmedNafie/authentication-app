@@ -128,7 +128,8 @@ private extension SignUpVC {
         return User(name: nameTextField.text!.trimmed,
                     gender: .init(rawValue: genderLabel.text!)!,
                     email: emailTextField.text!.trimmed,
-                    password: passwordTextField.text!.trimmed)
+                    password: passwordTextField.text!.trimmed,
+                    imagePath: "")
     }
     
     func isDataProvided() -> Bool {
@@ -149,14 +150,7 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
-        let encoder = JSONEncoder()
-        if let encodedUser = try? encoder.encode(user) {
-            DataPersistenceManager.shared.user = encodedUser
-        }
-        DataPersistenceManager.shared.name = user.name
-        DataPersistenceManager.shared.gender = user.gender.rawValue
-        DataPersistenceManager.shared.email = user.email
-        DataPersistenceManager.shared.password = user.password
+        DataPersistenceManager.shared.user = user
     }
     
     func showImagePickerController() {
@@ -166,8 +160,18 @@ private extension SignUpVC {
     }
     
     func saveImage() {
-        guard let data = imageView.image?.jpegData(compressionQuality: 1) else { return }
-        DataPersistenceManager.shared.imageData = data
+        guard
+            let data = imageView.image?.jpegData(compressionQuality: 1),
+            let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        else { return }
+        
+        do {
+            let imageURL = directory.appendingPathComponent("profileImage.jpg")
+            try data.write(to: imageURL)
+            DataPersistenceManager.shared.user?.imagePath = imageURL.path
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

@@ -16,57 +16,25 @@ class DataPersistenceManager {
     
     private enum UserDefaultsKeys {
         static let user = "AAUser"
-        static let name = "AAName"
-        static let email = "AAEmail"
-        static let gender = "AAGender"
-        static let password = "AAPassword"
-        static let imageData = "AAImageData"
         static let isLoggedIn = "AAisLoggedIn"
     }
     
     // MARK: - Properties
-    var name: String {
+    var user: User? {
         get {
-            UserDefaults.standard.string(forKey: UserDefaultsKeys.name) ?? ""
+            if let savedUser = UserDefaults.standard.data(forKey: UserDefaultsKeys.user) {
+                let decoder = JSONDecoder()
+                if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
+                    return loadedUser
+                }
+            }
+            return nil
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.name)
-        }
-    }
-    
-    var email: String {
-        get {
-            UserDefaults.standard.string(forKey: UserDefaultsKeys.email) ?? ""
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.email)
-        }
-    }
-    
-    var gender: String {
-        get {
-            UserDefaults.standard.string(forKey: UserDefaultsKeys.gender) ?? ""
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.gender)
-        }
-    }
-    
-    var password: String {
-        get {
-            UserDefaults.standard.string(forKey: UserDefaultsKeys.password) ?? ""
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.password)
-        }
-    }
-    
-    var imageData: Data {
-        get {
-            UserDefaults.standard.data(forKey: UserDefaultsKeys.imageData) ?? Data()
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.imageData)
+            let encoder = JSONEncoder()
+            if let encodedUser = try? encoder.encode(newValue) {
+                UserDefaults.standard.set(encodedUser, forKey: UserDefaultsKeys.user)
+            }
         }
     }
     
@@ -76,15 +44,6 @@ class DataPersistenceManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.isLoggedIn)
-        }
-    }
-    
-    var user: Data {
-        get {
-            UserDefaults.standard.data(forKey: UserDefaultsKeys.user) ?? Data()
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.user)
         }
     }
 }
