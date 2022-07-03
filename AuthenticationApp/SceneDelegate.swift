@@ -15,13 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         configureIQKeyboardManager()
-        if DataPersistenceManager.shared.isLoggedIn {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let profileVC = storyboard.instantiateViewController (withIdentifier: "ProfileVC")
-            let navigationController = UINavigationController(rootViewController: profileVC)
-            
-            window?.rootViewController = navigationController
-        }
+        setRootVC()
     }
     
 }
@@ -32,7 +26,14 @@ private extension SceneDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        
+    }
+    func setRootVC() {
+        if DataPersistenceManager.shared.isLoggedIn {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewController (withIdentifier: "ProfileVC")
+        let navigationController = UINavigationController(rootViewController: profileVC)
+        window?.rootViewController = navigationController
+    }
     }
 }
 
