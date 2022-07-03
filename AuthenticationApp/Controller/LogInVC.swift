@@ -12,11 +12,6 @@ class LogInVC: UIViewController {
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     
-    // MARK: - LifeCycle Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     // MARK: - Actions
     @IBAction func logInButtonTapped() {
         handleLogIn()
