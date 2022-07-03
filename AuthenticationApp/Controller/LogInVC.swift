@@ -15,7 +15,6 @@ class LogInVC: UIViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Actions
