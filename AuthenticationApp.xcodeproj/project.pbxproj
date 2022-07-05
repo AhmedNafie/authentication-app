@@ -13,6 +13,7 @@
 		452F551D280F988900311B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F551B280F988900311B55 /* Main.storyboard */; };
 		452F551F280F988B00311B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452F551E280F988B00311B55 /* Assets.xcassets */; };
 		452F5522280F988B00311B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452F5520280F988B00311B55 /* LaunchScreen.storyboard */; };
+		4537DC2728732BDD0076BE1A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 4537DC2628732BDD0076BE1A /* SQLite */; };
 		453F1F5C286B7D9A002697AD /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F1F5B286B7D9A002697AD /* DataPersistenceManager.swift */; };
 		4543BA3E28720FA0006E6314 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4543BA3D28720FA0006E6314 /* IQKeyboardManagerSwift */; };
 		45B2382628103ACD00A93AAC /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2382528103ACD00A93AAC /* LogInVC.swift */; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4537DC2728732BDD0076BE1A /* SQLite in Frameworks */,
 				4543BA3E28720FA0006E6314 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +159,7 @@
 			name = AuthenticationApp;
 			packageProductDependencies = (
 				4543BA3D28720FA0006E6314 /* IQKeyboardManagerSwift */,
+				4537DC2628732BDD0076BE1A /* SQLite */,
 			);
 			productName = AuthenticationApp;
 			productReference = 452F5512280F988900311B55 /* AuthenticationApp.app */;
@@ -188,6 +191,7 @@
 			mainGroup = 452F5509280F988900311B55;
 			packageReferences = (
 				4543BA3C28720FA0006E6314 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				4537DC2528732BDD0076BE1A /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 452F5513280F988900311B55 /* Products */;
 			projectDirPath = "";
@@ -452,6 +456,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4537DC2528732BDD0076BE1A /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.13.3;
+			};
+		};
 		4543BA3C28720FA0006E6314 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -463,6 +475,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4537DC2628732BDD0076BE1A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4537DC2528732BDD0076BE1A /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		4543BA3D28720FA0006E6314 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4543BA3C28720FA0006E6314 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
