@@ -17,11 +17,6 @@ class SignUpVC: UIViewController {
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var scrollView: UIScrollView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        DataPersistenceManager.shared.setupDatabase()
-        DataPersistenceManager.shared.listUsers()
-    }
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
@@ -102,7 +97,7 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
-        DataPersistenceManager.shared.insertUser(name: user.name, email: user.email, password: user.password, imagePath: user.imagePath)
+        DataPersistenceManager.shared.insert(user)
         DataPersistenceManager.shared.user = user
     }
     

@@ -16,6 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         configureIQKeyboardManager()
         setRootVC()
+        
+        DataPersistenceManager.shared.setupDatabase()
+        DataPersistenceManager.shared.listUsers()
     }
 }
 
