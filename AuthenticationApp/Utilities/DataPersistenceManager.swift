@@ -5,7 +5,7 @@
 //  Created by Ahmed Nafie on 28/06/2022.
 //
 
-import UIKit
+import Foundation
 import SQLite
 
 class DataPersistenceManager {
@@ -16,7 +16,7 @@ class DataPersistenceManager {
     
     private enum UserDefaultsKeys {
         static let user = "AAUser"
-        static let isLoggedIn = "AAisLoggedIn"
+        static let isLoggedIn = "AAloggedInUserID"
     }
     
     // MARK: - Private Properties
@@ -48,9 +48,9 @@ class DataPersistenceManager {
         }
     }
     
-    var isLoggedIn: Bool {
+    var loggedInUserID: Int {
         get {
-            UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn)
+            UserDefaults.standard.integer(forKey: UserDefaultsKeys.isLoggedIn)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.isLoggedIn)
@@ -90,91 +90,53 @@ extension DataPersistenceManager {
     }
     
     func getPassword(forEmail email: String) -> String? {
-        var password: String?
         do {
             let users = try self.database.prepare(self.usersTable)
-            let userTable = usersTable.filter(self.email == email)
             for user in users {
                 if email == (user [self.email]) {
-                    password = (user [self.password])
-                    print([self.id])
-                    print("\([self.id])")
+                    return (user [self.password])
                 }
             }
         } catch {
             print(error)
         }
-        print(password)
-        return password
+        return nil
     }
     
     func getID(forEmail email: String) -> Int? {
-        var userID: Int?
         do {
             let users = try self.database.prepare(self.usersTable)
             for user in users {
                 if email == (user [self.email]) {
-                    userID = (user [self.id])
-                    print([self.id])
-                    print("\([self.id])")
+                    return (user [self.id])
                 }
             }
         } catch {
             print(error)
         }
-        print(userID)
-        return userID
+        return nil
     }
     
-    func getID(forPassword password: String) -> Int? {
-        var userID: Int?
-        do {
-            let users = try self.database.prepare(self.usersTable)
-            for user in users {
-                if password == (user [self.password]) {
-                    userID = (user [self.id])
-                }
-            }
-        } catch {
-            print(error)
-        }
-        print(userID)
-        return userID
-    }
-    
-    func getEmail(for id: Int) -> String {
-        var userEmail = ""
+    func getUser(for id: Int) -> User? {
         do {
             let users = try self.database.prepare(self.usersTable)
             for user in users {
                 if id == (user [self.id]) {
-                    userEmail = (user [self.email])
+                    return User(name: (user [self.name]),
+                                gender: .male,
+                                email: (user [self.email]),
+                                password: (user [self.password]),
+                                imagePath: "")
                 }
             }
         } catch {
             print(error)
         }
-        print(userEmail)
-        return userEmail
-    }
-    
-    func getPassword(for id: Int) -> String {
-        var userPassword = ""
-        do {
-            let users = try self.database.prepare(self.usersTable)
-            for user in users {
-                if id == (user [self.id]) {
-                    userPassword = (user [self.password])
-                }
-            }
-        } catch {
-            print(error)
-        }
-        print(userPassword)
-        return userPassword
+        return nil
     }
 }
 
+// MARK: - Private Methods
 private extension DataPersistenceManager {
     func createDatabase() {
         do {

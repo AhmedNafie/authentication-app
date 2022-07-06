@@ -38,7 +38,6 @@ private extension LogInVC {
             return false
         }
         
-        
         let correctPassword = DataPersistenceManager.shared.getPassword(forEmail: emailTextField.text?.trimmed.lowercased() ?? "")
         guard
             correctPassword != nil
@@ -68,7 +67,9 @@ private extension LogInVC {
     }
     
     func enableIsLoggedIn() {
-        DataPersistenceManager.shared.isLoggedIn = true
+        if let userID = DataPersistenceManager.shared.getID(forEmail: emailTextField.text?.trimmed.lowercased() ?? "") {
+            DataPersistenceManager.shared.loggedInUserID = userID
+        }
     }
     
     func goToProfileVC() {

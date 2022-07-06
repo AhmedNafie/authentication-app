@@ -13,11 +13,15 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var userInformationTableView: UITableView!
 
     // MARK: - Properties
-    private var cellData = [
-        (title: "Name", detail: DataPersistenceManager.shared.user?.name ?? ""),
-        (title: "Email", detail: DataPersistenceManager.shared.user?.email ?? ""),
-        (title: "Gender", detail: DataPersistenceManager.shared.user?.gender.rawValue ?? "")
-    ]
+    private var cellData: [(title: String, detail: String)] {
+        let userID = DataPersistenceManager.shared.loggedInUserID
+        let user = DataPersistenceManager.shared.getUser(for: userID)!
+        return [
+            (title: "Name", detail: user.name),
+            (title: "Email", detail: user.email),
+            (title: "Gender", detail:user.gender.rawValue)
+        ]
+    }
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -102,7 +106,7 @@ private extension ProfileVC {
     }
     
     func updateTableView(at row: Int, with userData: String) {
-        cellData[row].detail = userData
+//        cellData[row].detail = userData
         userInformationTableView.reloadData()
     }
     
@@ -112,7 +116,7 @@ private extension ProfileVC {
     }
     
     func disableIsLoggedIn() {
-        DataPersistenceManager.shared.isLoggedIn = false
+        DataPersistenceManager.shared.loggedInUserID = 0
     }
     
     func goToSignUpVC() {

@@ -31,7 +31,7 @@ private extension SceneDelegate {
     }
     
     func setRootVC() {
-        if DataPersistenceManager.shared.isLoggedIn {
+        if DataPersistenceManager.shared.loggedInUserID != 0 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let profileVC = storyboard.instantiateViewController (withIdentifier: "ProfileVC")
             let navigationController = UINavigationController(rootViewController: profileVC)
