@@ -20,7 +20,7 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DataPersistenceManager.shared.setupDatabase()
-        DataPersistenceManager.shared.listUsers()
+        DataPersistenceManager.shared.returnUserPassword()
     }
     // MARK: - Actions
     @IBAction private func signUpButtonTapped() {
@@ -28,7 +28,6 @@ class SignUpVC: UIViewController {
             saveData(of: user)
             saveImage()
             goToLogInVC()
-            DataPersistenceManager.shared.listUsers()
         }
     }
     

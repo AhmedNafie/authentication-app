@@ -21,10 +21,21 @@ class LogInVC: UIViewController {
 // MARK: - Private Methods
 private extension LogInVC {
     func handleLogIn() {
+        DataPersistenceManager.shared.emailIDGiver(email: emailTextField.text ?? "")
+        DataPersistenceManager.shared.passwordIDGiver(password: passwordTextField.text ?? "")
+        
         if isValidCredentials() {
             enableIsLoggedIn()
             goToProfileVC()
         }
+    }
+    func isDataBelongingToSameUser() -> Bool {
+        guard DataPersistenceManager.shared.emailIDGiver(email: emailTextField.text ?? "") ==
+                DataPersistenceManager.shared.passwordIDGiver(password: passwordTextField.text ?? "") else {
+                    showAlert(with: "Data doesnt belong to the user")
+                    return false
+                }
+        return true
     }
     
     func isValidCredentials() -> Bool {
@@ -39,14 +50,14 @@ private extension LogInVC {
         }
         
         guard
-            emailTextField.text?.trimmed.lowercased() == DataPersistenceManager.shared.user?.email.lowercased()
+            emailTextField.text?.trimmed.lowercased() == DataPersistenceManager.shared.emailGetter(id: DataPersistenceManager.shared.emailIDGiver(email: emailTextField.text ?? ""))
         else {
             showAlert(with: "Email Is Not Found!")
             return false
         }
         
         guard
-            passwordTextField.text?.trimmed == DataPersistenceManager.shared.user?.password
+            passwordTextField.text?.trimmed == DataPersistenceManager.shared.passwordGetter(id: DataPersistenceManager.shared.passwordIDGiver(password: passwordTextField.text ?? ""))
         else {
             showAlert(with: "Wrong Password")
             return false
