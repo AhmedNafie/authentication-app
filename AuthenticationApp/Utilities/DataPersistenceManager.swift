@@ -28,7 +28,7 @@ class DataPersistenceManager {
     let email = Expression<String>("email")
     let password = Expression<String>("password")
     let imagePath = Expression<String>("imagePath")
-
+    
     var user: User? {
         get {
             if let savedUser = UserDefaults.standard.data(forKey: UserDefaultsKeys.user) {
@@ -58,9 +58,9 @@ class DataPersistenceManager {
 }
 
 // MARK: - Methods
- extension DataPersistenceManager {
+extension DataPersistenceManager {
     func setupDatabase() {
-      createDatabase()
+        createDatabase()
         createTable()
     }
     
@@ -71,7 +71,7 @@ class DataPersistenceManager {
             let database = try Connection(fileUrl.path)
             DataPersistenceManager.shared.database = database
             print("ask mostafaa ")
-
+            
         } catch {
             print(error)
         }
@@ -81,7 +81,7 @@ class DataPersistenceManager {
         let createTable = self.usersTable.create { (table) in
             table.column(self.id, primaryKey: true)
             table.column(self.name)
-// gender
+            // gender
             table.column(self.email, unique: true)
             table.column(self.password)
             table.column(self.imagePath)
@@ -95,7 +95,7 @@ class DataPersistenceManager {
         }
     }
     
-     func insertUser(name: String, email: String, password: String, imagePath: String) {
+    func insertUser(name: String, email: String, password: String, imagePath: String) {
         let insertUser = self.usersTable.insert(self.name <- name, self.email <- email, self.password <- password,self.imagePath <- imagePath)
         do {
             try self.database.run(insertUser)
@@ -104,112 +104,82 @@ class DataPersistenceManager {
             print(error)
         }
     }
-     
-     func returnUserPassword() -> String{
-         var password = ""
-         do {
-             let users = try self.database.prepare(self.usersTable)
-             print(" ehlloo  \(users)")
-             for user in users {
-                 print("userid: \(user[self.id]) , name \(user [self.name]), email \(user [self.email]), password \(user [self.password]),  imagePath \(user [self.imagePath])")
-                 password = (user [self.password])
-                 print(password)
-             }
-         } catch {
-             print(error)
-         }
-        return password
-     }
-     
-     func returnUserEmail() -> String{
-         var email = ""
-         do {
-             let users = try self.database.prepare(self.usersTable)
-             print(" ehlloo  \(users)")
-             for user in users {
-                 email = (user [self.email])
-                 print(email)
-             }
-         } catch {
-             print(error)
-         }
-        return email
-     }
-     
-     func emailIDGiver(email: String) -> Int {
-         var userID = 0
-         do {
-             let users = try self.database.prepare(self.usersTable)
-             for user in users {
-                 if email == (user [self.email]) {
-                     userID = (user [self.id])
-                     print([self.id])
-                     print("\([self.id])")
-
-                 }
-                 //                 password = (user [self.id])
-//                 print(password)
-             }
-         } catch {
-             print(error)
-         }
-print(userID)
-         return userID
-     }
-     
-     func passwordIDGiver(password: String) -> Int {
-         let user = self.usersTable.filter(self.id == 3)
-         self.usersTable.filter(self.id == 3)
-         var userID = 0
-         do {
-             let users = try self.database.prepare(self.usersTable)
-             for user in users {
-                 if password == (user [self.password]) {
-                     userID = (user [self.id])
-                 }
-  }
-         } catch {
-             print(error)
-         }
-print(userID)
-         return userID
-     }
-     
-     
-     func emailGetter(id: Int) -> String {
-         
-         var userEmail = ""
-         do {
-             let users = try self.database.prepare(self.usersTable)
-             for user in users {
-                 if id == (user [self.id]) {
-                     userEmail = (user [self.email])
-                 }
-  }
-         } catch {
-             print(error)
-         }
-print(userEmail)
-         return userEmail
-     }
-     
-     func passwordGetter(id: Int) -> String {
-         
-         var userPassword = ""
-         do {
-             let users = try self.database.prepare(self.usersTable)
-             for user in users {
-                 if id == (user [self.id]) {
-                     userPassword = (user [self.password])
-                 }
-  }
-         } catch {
-             print(error)
-         }
-print(userPassword)
-         return userPassword
-     }
-     
-     
+    
+    func listUsers() {
+        do {
+            let users = try self.database.prepare(self.usersTable)
+            for user in users {
+                print("userid: \(user[self.id]) , name \(user [self.name]), email \(user [self.email]), password \(user [self.password]),  imagePath \(user [self.imagePath])")
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func emailIDGiver(email: String) -> Int {
+        var userID = 0
+        do {
+            let users = try self.database.prepare(self.usersTable)
+            for user in users {
+                if email == (user [self.email]) {
+                    userID = (user [self.id])
+                    print([self.id])
+                    print("\([self.id])")
+                }
+            }
+        } catch {
+            print(error)
+        }
+        print(userID)
+        return userID
+    }
+    
+    func passwordIDGiver(password: String) -> Int {
+        var userID = 0
+        do {
+            let users = try self.database.prepare(self.usersTable)
+            for user in users {
+                if password == (user [self.password]) {
+                    userID = (user [self.id])
+                }
+            }
+        } catch {
+            print(error)
+        }
+        print(userID)
+        return userID
+    }
+    
+    func emailGetter(id: Int) -> String {
+        var userEmail = ""
+        do {
+            let users = try self.database.prepare(self.usersTable)
+            for user in users {
+                if id == (user [self.id]) {
+                    userEmail = (user [self.email])
+                }
+            }
+        } catch {
+            print(error)
+        }
+        print(userEmail)
+        return userEmail
+    }
+    
+    func passwordGetter(id: Int) -> String {
+        var userPassword = ""
+        do {
+            let users = try self.database.prepare(self.usersTable)
+            for user in users {
+                if id == (user [self.id]) {
+                    userPassword = (user [self.password])
+                }
+            }
+        } catch {
+            print(error)
+        }
+        print(userPassword)
+        return userPassword
+    }
 }
 

@@ -24,11 +24,12 @@ private extension LogInVC {
         DataPersistenceManager.shared.emailIDGiver(email: emailTextField.text ?? "")
         DataPersistenceManager.shared.passwordIDGiver(password: passwordTextField.text ?? "")
         
-        if isValidCredentials() {
+        if isValidCredentials(),isDataBelongingToSameUser() {
             enableIsLoggedIn()
             goToProfileVC()
         }
     }
+    
     func isDataBelongingToSameUser() -> Bool {
         guard DataPersistenceManager.shared.emailIDGiver(email: emailTextField.text ?? "") ==
                 DataPersistenceManager.shared.passwordIDGiver(password: passwordTextField.text ?? "") else {

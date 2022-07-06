@@ -24,7 +24,6 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         showImage()
         setupTableView()
-        print(DataPersistenceManager.shared.user)
     }
     
     // MARK: - Actions
