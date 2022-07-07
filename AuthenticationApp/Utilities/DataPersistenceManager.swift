@@ -15,7 +15,7 @@ class DataPersistenceManager {
     private init() {}
     
     private enum UserDefaultsKeys {
-        static let isLoggedIn = "AAloggedInUserID"
+        static let loggedInUserID = "AAloggedInUserID"
     }
     
     // MARK: - Private Properties
@@ -30,10 +30,10 @@ class DataPersistenceManager {
     
     var loggedInUserID: Int {
         get {
-            UserDefaults.standard.integer(forKey: UserDefaultsKeys.isLoggedIn)
+            UserDefaults.standard.integer(forKey: UserDefaultsKeys.loggedInUserID)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.isLoggedIn)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.loggedInUserID)
         }
     }
 }
