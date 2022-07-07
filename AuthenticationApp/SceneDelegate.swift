@@ -16,9 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         configureIQKeyboardManager()
         setRootVC()
-        
-        DataPersistenceManager.shared.setupDatabase()
-        DataPersistenceManager.shared.listUsers()
+        setupDatabase()
     }
 }
 
@@ -37,6 +35,11 @@ private extension SceneDelegate {
             let navigationController = UINavigationController(rootViewController: profileVC)
             window?.rootViewController = navigationController
         }
+    }
+    
+    func setupDatabase() {
+        DataPersistenceManager.shared.setupDatabase()
+        DataPersistenceManager.shared.listUsers()
     }
 }
 
