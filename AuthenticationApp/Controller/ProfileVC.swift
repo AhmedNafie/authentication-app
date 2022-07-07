@@ -14,8 +14,7 @@ class ProfileVC: UIViewController {
 
     // MARK: - Properties
     private var cellData: [(title: String, detail: String)] {
-        let userID = DataPersistenceManager.shared.loggedInUserID
-        let user = DataPersistenceManager.shared.getUser(for: userID)!
+        let user = DataPersistenceManager.shared.getLoggedInUser()!
         return [
             (title: "Name", detail: user.name),
             (title: "Email", detail: user.email),
@@ -63,7 +62,8 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
-        imageView.image = UIImage(contentsOfFile: DataPersistenceManager.shared.user?.imagePath ?? "")
+        let imagePath = DataPersistenceManager.shared.getLoggedInUserImagePath() ?? ""
+        imageView.image = UIImage(contentsOfFile: imagePath)
     }
     
     func setupTableView() {
@@ -99,9 +99,9 @@ private extension ProfileVC {
     
     func editUserData(at row: Int, with userData: String) {
         if row == 0 {
-            DataPersistenceManager.shared.user?.name = userData
+            DataPersistenceManager.shared.updateUserName(with: userData)
         } else {
-            DataPersistenceManager.shared.user?.email = userData
+            DataPersistenceManager.shared.updateUserEmail(with: userData)
         }
     }
     
