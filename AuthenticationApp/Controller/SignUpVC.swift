@@ -21,7 +21,7 @@ class SignUpVC: UIViewController {
     @IBAction private func signUpButtonTapped() {
         if let user = validatedUser() {
             saveData(of: user)
-            saveImage()
+            saveImage(of: user)
             goToLogInVC()
         }
     }
@@ -97,7 +97,7 @@ private extension SignUpVC {
     }
     
     func saveData(of user: User) {
-        DataPersistenceManager.shared.user = user
+        DataPersistenceManager.shared.insert(user)
     }
     
     func showImagePickerController() {
@@ -106,16 +106,15 @@ private extension SignUpVC {
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    func saveImage() {
+    func saveImage(of user: User) {
         guard
             let data = imageView.image?.jpegData(compressionQuality: 1),
             let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         else { return }
         
         do {
-            let imageURL = directory.appendingPathComponent("profileImage.jpg")
+            let imageURL = directory.appendingPathComponent("\(user.email)+profileImage.jpg")
             try data.write(to: imageURL)
-            DataPersistenceManager.shared.user?.imagePath = imageURL.path
         } catch {
             print(error.localizedDescription)
         }

@@ -13,18 +13,20 @@ class ProfileVC: UIViewController {
     @IBOutlet weak private var userInformationTableView: UITableView!
 
     // MARK: - Properties
-    private var cellData = [
-        (title: "Name", detail: DataPersistenceManager.shared.user?.name ?? ""),
-        (title: "Email", detail: DataPersistenceManager.shared.user?.email ?? ""),
-        (title: "Gender", detail: DataPersistenceManager.shared.user?.gender.rawValue ?? "")
-    ]
+    private var cellData: [(title: String, detail: String)] {
+        let user = DataPersistenceManager.shared.getLoggedInUser()!
+        return [
+            (title: "Name", detail: user.name),
+            (title: "Email", detail: user.email),
+            (title: "Gender", detail:user.gender.rawValue)
+        ]
+    }
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         showImage()
         setupTableView()
-        print(DataPersistenceManager.shared.user)
     }
     
     // MARK: - Actions
@@ -60,7 +62,8 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: Private methods
 private extension ProfileVC {
     func showImage() {
-        imageView.image = UIImage(contentsOfFile: DataPersistenceManager.shared.user?.imagePath ?? "")
+        let imagePath = DataPersistenceManager.shared.getLoggedInUserImagePath() ?? ""
+        imageView.image = UIImage(contentsOfFile: imagePath)
     }
     
     func setupTableView() {
@@ -96,14 +99,14 @@ private extension ProfileVC {
     
     func editUserData(at row: Int, with userData: String) {
         if row == 0 {
-            DataPersistenceManager.shared.user?.name = userData
+            DataPersistenceManager.shared.updateUserName(with: userData)
         } else {
-            DataPersistenceManager.shared.user?.email = userData
+            DataPersistenceManager.shared.updateUserEmail(with: userData)
         }
     }
     
     func updateTableView(at row: Int, with userData: String) {
-        cellData[row].detail = userData
+//        cellData[row].detail = userData
         userInformationTableView.reloadData()
     }
     
@@ -113,7 +116,7 @@ private extension ProfileVC {
     }
     
     func disableIsLoggedIn() {
-        DataPersistenceManager.shared.isLoggedIn = false
+        DataPersistenceManager.shared.loggedInUserID = 0
     }
     
     func goToSignUpVC() {
