@@ -10,7 +10,7 @@ Introducing the ability to store data using SQLite
 The ability to retrive stored data and edit them.
 
 
-![Simulator Screen Recording - iPhone 13 - 2023-11-03 at 12 33 21](https://github.com/AhmedNafie/authentication-app/assets/101005449/d5d75bd6-3494-4255-9e2b-01559ba80200)
+![Simulator Screen Recording - iPhone 13 - 2023-11-03 at 12 33 21](https://github.com/AhmedNafie/authentication-app/assets/101005449/ed076506-8f4a-4d19-9071-f93a1e529e60)
 
 
 
